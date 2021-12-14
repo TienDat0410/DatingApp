@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:background="#041f4a">
+
+<!--        <com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx-->
+<!--            android:id="@+id/topNavViewBar"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="50dp"-->
+<!--            android:layout_gravity="bottom"-->
+<!--            tools:ignore="MissingClass" />-->
+<!--&lt;!&ndash;            //app:menu="@menu/top_navigation_toolbar">&ndash;&gt;-->
+
+        </LinearLayout>
+
+</merge>

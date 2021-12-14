@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#00003f"
+    tools:context=".MainActivity">
+
+    <FrameLayout
+        android:id="@+id/card_frame"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="70dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#00003f"
+            android:orientation="vertical">
+
+            <!-- top navigation -->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="10dp"
+                android:layout_weight="1"
+                android:background="@drawable/view_bg"
+                android:orientation="vertical">
+
+                <com.lorentzos.flingswipe.SwipeFlingAdapterView
+                    android:id="@+id/frame"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:background="#00003f"
+                    app:rotation_degrees="15.5"
+                    tools:context=".MyActivity" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="90dp"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+
+                    <ImageButton
+                        android:id="@+id/dislikebtn"
+                        android:layout_width="70dp"
+                        android:layout_height="70dp"
+                        android:layout_marginEnd="20dp"
+                        android:background="@drawable/round_button_with_border"
+
+                        android:elevation="7dp"
+                        android:onClick="DislikeBtn"
+                        android:padding="10dp"
+                        android:src="@drawable/ic_dislike"
+                        tools:ignore="DuplicateSpeakableTextCheck,OnClick,SpeakableTextPresentCheck" />
+
+                    <ImageButton
+                        android:id="@+id/commentbtn"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:layout_gravity="center"
+                        android:layout_marginEnd="20dp"
+                        android:background="@drawable/round_button_with_border"
+
+                        android:elevation="7dp"
+                        android:padding="10dp"
+                        android:src="@drawable/ic_comment"
+                        tools:ignore="SpeakableTextPresentCheck,DuplicateSpeakableTextCheck" />
+
+
+                    <ImageButton
+                        android:id="@+id/likebtn"
+                        android:layout_width="70dp"
+                        android:layout_height="70dp"
+                        android:background="@drawable/round_button_with_border"
+                        android:elevation="7dp"
+                        android:onClick="LikeBtn"
+                        android:padding="10dp"
+                        android:src="@drawable/ic_like1"
+                        tools:ignore="ImageContrastCheck,OnClick,SpeakableTextPresentCheck"
+                        />
+
+
+                </LinearLayout>
+
+            </LinearLayout>
+        </LinearLayout>
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/more_frame"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="70dp"
+        android:visibility="gone">
+
+
+    </FrameLayout>
+
+</RelativeLayout>
