@@ -7,7 +7,12 @@ package com.quintus.labs.datingapp.Main;
 
 public class Cards {
     private String userId;
-    private String name, profileImageUrl, bio, interest;
+    private String name;
+    private String bio;
+    private String profileImageUr;
+    private String interest;
+//    private String profileImageUr;
+//    private int profileImageUrl;
     private int age;
     private int distance;
 
@@ -15,14 +20,14 @@ public class Cards {
         this.userId = userId;
         this.name = name;
         this.age = age;
-        this.profileImageUrl = profileImageUrl;
+        this.profileImageUr = profileImageUrl;
         this.bio = bio;
         this.interest = interest;
         this.distance = distance;
     }
 
     public Cards(String profileImageUrl) {
-        this.profileImageUrl = profileImageUrl;
+        this.profileImageUr = profileImageUrl;
     }
 
     public int getDistance() {
@@ -45,12 +50,12 @@ public class Cards {
         this.age = age;
     }
 
-    public String getProfileImageUrl() {
-        return profileImageUrl;
+    public String getProfileImageUr() {
+        return profileImageUr;
     }
 
-    public void setProfileImageUrl(String profileImageUrl) {
-        this.profileImageUrl = profileImageUrl;
+    public void setProfileImageUr(String profileImageUr) {
+        this.profileImageUr = profileImageUr;
     }
 
     public String getUserId() {

@@ -1,5 +1,6 @@
 package com.quintus.labs.datingapp.Matched;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
@@ -20,12 +21,6 @@ import com.quintus.labs.datingapp.Utils.User;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * DatingApp
- * https://github.com/quintuslabs/DatingApp
- * Created on 25-sept-2018.
- * Created by : Santosh Kumar Dash:- http://santoshdash.epizy.com
- */
 
 public class Matched_Activity extends AppCompatActivity {
 
@@ -56,7 +51,7 @@ public class Matched_Activity extends AppCompatActivity {
         mRecyclerView = findViewById(R.id.matche_recycler_view);
 
         adapter = new ActiveUserAdapter(usersList, getApplicationContext());
-        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(this, LinearLayout.HORIZONTAL, false);
+        @SuppressLint("WrongConstant") RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(this, LinearLayout.HORIZONTAL, false);
         recyclerView.setLayoutManager(mLayoutManager);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.setAdapter(adapter);
@@ -74,7 +69,7 @@ public class Matched_Activity extends AppCompatActivity {
     }
 
     private void prepareActiveData() {
-        Users users = new Users("1", "Swati Tripathy", 21, "https://im.idiva.com/author/2018/Jul/shivani_chhabra-_author_s_profile.jpg", "Simple and beautiful Girl", "Acting", 200);
+        Users users = new Users("1", "Ali Al-Adba", 35, "https://baoquocte.vn/stores/news_dataimages/thanhtruc/122021/25/12/aff-cup-2020-trong-tai-tran-viet-nam-thai-lan-al-adba-saoud-ali-roi-singapore.jpg?rt=20211225120159", "Cầu thử số 12", "Acting", 200);
         usersList.add(users);
         users = new Users("2", "Ananaya Pandy", 20, "https://i0.wp.com/profilepicturesdp.com/wp-content/uploads/2018/06/beautiful-indian-girl-image-for-profile-picture-8.jpg", "cool Minded Girl", "Dancing", 800);
         usersList.add(users);
@@ -87,84 +82,28 @@ public class Matched_Activity extends AppCompatActivity {
     }
 
     private void prepareMatchData() {
-        Users users = new Users("1", "Swati Tripathy", 21, "https://im.idiva.com/author/2018/Jul/shivani_chhabra-_author_s_profile.jpg", "Simple and beautiful Girl", "Acting", 200);
+        Users users = new Users("1", "Hoàng Khang", 21, "https://scontent.fsgn13-2.fna.fbcdn.net/v/t39.30808-6/269833073_1576261169382012_4208457639995580791_n.jpg?_nc_cat=106&ccb=1-5&_nc_sid=09cbfe&_nc_ohc=vBPVGPyCdKwAX8O1ja7&_nc_ht=scontent.fsgn13-2.fna&oh=00_AT-CTLUhxjwqY2a9vd1aKq2-hcbSWsXdIeLvSsyfPnPwDw&oe=61D1EC98", "HChua Mhe, dark bruh", "Acting", 200);
         matchList.add(users);
-        users = new Users("2", "Ananaya Pandy", 20, "https://i0.wp.com/profilepicturesdp.com/wp-content/uploads/2018/06/beautiful-indian-girl-image-for-profile-picture-8.jpg", "cool Minded Girl", "Dancing", 800);
+        users = new Users("2", "Bob Vu", 20, "https://scontent.fsgn13-2.fna.fbcdn.net/v/t1.6435-9/173412871_277560620579419_3767717723319533504_n.jpg?_nc_cat=108&ccb=1-5&_nc_sid=174925&_nc_ohc=ri3g09EOs5QAX9FhWOr&_nc_ht=scontent.fsgn13-2.fna&oh=00_AT8TRDfesm9XbXkSNv4yPBfNmi5DWxuPaqArXK5mb185Kw&oe=61F16E9F", "BobVu", "Dancing", 800);
         matchList.add(users);
-        users = new Users("3", "Anjali Kasyap", 22, "https://pbs.twimg.com/profile_images/967542394898952192/_M_eHegh_400x400.jpg", "Simple and beautiful Girl", "Singing", 400);
+        users = new Users("3", "Tien Dat", 20, "https://scontent.fsgn8-2.fna.fbcdn.net/v/t39.30808-6/208293637_496209454821482_7496314946123640223_n.jpg?_nc_cat=100&ccb=1-5&_nc_sid=09cbfe&_nc_ohc=AEoeYpYEWwoAX9iG52u&_nc_ht=scontent.fsgn8-2.fna&oh=00_AT-8YCliuRdGfbKhnRbAnYRHW7yKgQR_nO3XU8AdGCZitQ&oe=61D0EF27", "Simp", "Singing", 400);
         matchList.add(users);
-        users = new Users("4", "Preety Deshmukh", 19, "http://profilepicturesdp.com/wp-content/uploads/2018/07/fb-real-girls-dp-3.jpg", "dashing girl", "swiming", 1308);
+        users = new Users("4", "Gia Nguyễn", 10, "https://scontent.fsgn3-1.fna.fbcdn.net/v/t1.6435-9/159412590_1776326282549220_6488695765601549205_n.jpg?_nc_cat=104&ccb=1-5&_nc_sid=09cbfe&_nc_ohc=Yyh-x69fUO8AX-srRWg&_nc_ht=scontent.fsgn3-1.fna&oh=00_AT-6V6VqMvU6016xT5jhVLhlWNXzUnvhD_viJHTOm5F7Uw&oe=61F1F1BC", "Prolayer", "swiming", 1308);
         matchList.add(users);
-        users = new Users("5", "Srutimayee Sen", 20, "https://dp.profilepics.in/profile_pictures/selfie-girls-profile-pics-dp/selfie-pics-dp-for-whatsapp-facebook-profile-25.jpg", "chulbuli nautankibaj ", "Drawing", 1200);
+        users = new Users("5", "Minh Anh", 20, "https://i.pinimg.com/564x/5d/a2/70/5da27003cba271fe295a787ea3fba410.jpg", "love you ", "Drawing", 1200);
         matchList.add(users);
-        users = new Users("6", "Dikshya Agarawal", 21, "https://pbs.twimg.com/profile_images/485824669732200448/Wy__CJwU.jpeg", "Simple and beautiful Girl", "Sleeping", 700);
+        users = new Users("6", "Nguyen Hà", 21, "https://i.pinimg.com/564x/87/d3/98/87d398f723397c8add8a32537719ba16.jpg", "Simple and beautiful Girl", "Sleeping", 700);
         matchList.add(users);
-        users = new Users("7", "Sudeshna Roy", 19, "https://talenthouse-res.cloudinary.com/image/upload/c_fill,f_auto,h_640,w_640/v1411380245/user-415406/submissions/hhb27pgtlp9akxjqlr5w.jpg", "Papa's Pari", "Art", 5000);
+        users = new Users("7", "Ngọc Hạnh", 19, "https://i.pinimg.com/564x/9c/28/53/9c2853e7661095d57f94418d77b43c36.jpg", "Papa's Pari", "Art", 5000);
         matchList.add(users);
 
         mAdapter.notifyDataSetChanged();
     }
 
     private void searchFunc() {
-       /* search = findViewById(R.id.searchBar);
-        search.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-            }
 
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-                searchText();
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {
-                searchText();
-            }
-        });*/
     }
 
-    /* private void searchText() {
-         String text = search.getText().toString().toLowerCase(Locale.getDefault());
-         if (text.length() != 0) {
-             if (matchList.size() != 0) {
-                 matchList.clear();
-                 for (User user : copyList) {
-                     if (user.getUsername().toLowerCase(Locale.getDefault()).contains(text)) {
-                         matchList.add(user);
-                     }
-                 }
-             }
-         } else {
-             matchList.clear();
-             matchList.addAll(copyList);
-         }
-
-         mAdapter.notifyDataSetChanged();
-     }
-
-     private boolean checkDup(User user) {
-         if (matchList.size() != 0) {
-             for (User u : matchList) {
-                 if (u.getUsername() == user.getUsername()) {
-                     return true;
-                 }
-             }
-         }
-
-         return false;
-     }
-
-     private void checkClickedItem(int position) {
-
-         User user = matchList.get(position);
-         //calculate distance
-         Intent intent = new Intent(this, ProfileCheckinMatched.class);
-         intent.putExtra("classUser", user);
-
-         startActivity(intent);
-     }
- */
     private void setupTopNavigationView() {
         Log.d(TAG, "setupTopNavigationView: setting up TopNavigationView");
         BottomNavigationViewEx tvEx = findViewById(R.id.topNavViewBar);

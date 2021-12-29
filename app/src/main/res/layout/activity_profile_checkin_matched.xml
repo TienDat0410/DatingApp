@@ -1,10 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--
-   * DatingApp
-    * https://github.com/quintuslabs/DatingApp
-    * Created on 25-sept-2018.
-    * Created by : Santosh Kumar Dash:- http://santoshdash.epizy.com
-    -->
+
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
@@ -17,7 +12,7 @@
         <!-- contain back activity -->
         <include layout="@layout/layout_top_navigation_back" />
 
-        <com.example.yuxuanli.pinmoon.Utils.SquareImageView
+        <com.quintus.labs.datingapp.Utils.SquareImageView
             android:id="@+id/image_matched"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -32,7 +27,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:gravity="center_horizontal"
-            android:text="Victoria, 19"
+            android:text="Diệu linh, 19"
             android:textColor="@color/textColor"
             android:textSize="25sp" />
 

@@ -43,7 +43,7 @@ public class PhotoAdapter extends ArrayAdapter<Cards> {
             public void onClick(View v) {
                 Intent intent = new Intent(mContext, ProfileCheckinMain.class);
                 intent.putExtra("name", card_item.getName() + ", " + card_item.getAge());
-                intent.putExtra("photo", card_item.getProfileImageUrl());
+                intent.putExtra("photo", card_item.getProfileImageUr());
                 intent.putExtra("bio", card_item.getBio());
                 intent.putExtra("interest", card_item.getInterest());
                 intent.putExtra("distance", card_item.getDistance());
@@ -53,7 +53,7 @@ public class PhotoAdapter extends ArrayAdapter<Cards> {
 
         name.setText(card_item.getName() + ", " + card_item.getAge());
 
-        switch (card_item.getProfileImageUrl()) {
+        switch (card_item.getProfileImageUr()) {
             case "defaultFemale":
                 Glide.with(getContext()).load(R.drawable.default_woman).into(image);
                 break;
@@ -61,7 +61,7 @@ public class PhotoAdapter extends ArrayAdapter<Cards> {
                 Glide.with(getContext()).load(R.drawable.default_man).into(image);
                 break;
             default:
-                Glide.with(getContext()).load(card_item.getProfileImageUrl()).into(image);
+                Glide.with(getContext()).load(card_item.getProfileImageUr()).into(image);
                 break;
         }
 

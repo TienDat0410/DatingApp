@@ -28,12 +28,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-/**
- * DatingApp
- * https://github.com/quintuslabs/DatingApp
- * Created on 25-sept-2018.
- * Created by : Santosh Kumar Dash:- http://santoshdash.epizy.com
- */
 
 public class MainActivity extends Activity {
     private static final String TAG = "MainActivity";
@@ -65,6 +59,7 @@ public class MainActivity extends Activity {
 
 
         rowItems = new ArrayList<Cards>();
+
         Cards cards = new Cards("1", "Diệu Linh", 21, "https://i.pinimg.com/564x/ba/ef/8c/baef8c84567c3ebadce92439a04bd387.jpg", "Simple and beautiful Girl", "Acting", 200);
         rowItems.add(cards);
         cards = new Cards("2", "Trà Giang", 20, "https://i.pinimg.com/564x/8b/f5/62/8bf5626b6ac0d1be07fd63d0ad413012.jpg", "cool Minded Girl", "Dancing", 800);
@@ -79,6 +74,28 @@ public class MainActivity extends Activity {
         rowItems.add(cards);
         cards = new Cards("7", "Thu Kiều", 19, "https://i.pinimg.com/564x/9d/69/1d/9d691dc8d36789197f69431fadfb77e7.jpg", "Papa's Pari", "Art", 5000);
         rowItems.add(cards);
+        cards = new Cards("8", "Hot gir", 19, "https://i.pinimg.com/564x/4a/5e/7d/4a5e7deed283397043b3c394fb00f565.jpg", "suppermen", "Art", 3000);
+        rowItems.add(cards);
+        cards = new Cards("9", "Suri Suri", 10, "https://i.pinimg.com/564x/5d/a2/70/5da27003cba271fe295a787ea3fba410.jpg", "in4", "Sleep", 4500);
+        rowItems.add(cards);
+//        Cards cards = new Cards("1", "Diệu Linh", 21, R.drawable.user1, "Simple and beautiful Girl", "Acting", 200);
+//        rowItems.add(cards);
+//        cards = new Cards("2", "Trà Giang", 20, R.drawable.user2, "cool Minded Girl", "Dancing", 800);
+//        rowItems.add(cards);
+//        cards = new Cards("3", "Phương Uyên", 22, R.drawable.user4, "Simple and beautiful Girl", "Singing", 400);
+//        rowItems.add(cards);
+//        cards = new Cards("4", "Thuý", 19, R.drawable.user5, "dashing girl", "swiming", 1308);
+//        rowItems.add(cards);
+//        cards = new Cards("5", "Thị Ngọc", 20, R.drawable.user6, "chulbuli nautankibaj ", "Drawing", 1200);
+//        rowItems.add(cards);
+//        cards = new Cards("6", "Hạnh Hạnh", 21, R.drawable.user7, "Simple and beautiful Girl", "Sleeping", 700);
+//        rowItems.add(cards);
+//        cards = new Cards("7", "Thu Kiều", 19, R.drawable.user8, "Papa's Pari", "Art", 5000);
+//        rowItems.add(cards);
+//        cards = new Cards("8", "Hot gir", 19, R.drawable.user9, "suppermen", "Art", 3000);
+//        rowItems.add(cards);
+//        cards = new Cards("9", "Suri Suri", 10, R.drawable.user3, "in4", "Sleep", 4500);
+//        rowItems.add(cards);
 
         arrayAdapter = new PhotoAdapter(this, R.layout.item, rowItems);
 
@@ -198,7 +215,7 @@ public class MainActivity extends Activity {
             arrayAdapter.notifyDataSetChanged();
 
             Intent btnClick = new Intent(mContext, BtnDislikeActivity.class);
-            btnClick.putExtra("url", card_item.getProfileImageUrl());
+            btnClick.putExtra("url", card_item.getProfileImageUr());
             startActivity(btnClick);
         }
     }
@@ -215,7 +232,7 @@ public class MainActivity extends Activity {
             arrayAdapter.notifyDataSetChanged();
 
             Intent btnClick = new Intent(mContext, BtnLikeActivity.class);
-            btnClick.putExtra("url", card_item.getProfileImageUrl());
+            btnClick.putExtra("url", card_item.getProfileImageUr());
             startActivity(btnClick);
         }
     }

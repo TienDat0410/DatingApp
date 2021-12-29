@@ -6,32 +6,47 @@
         <entry key="..\:/LTtrendidong/DatingApp-new/DatingApp-master/app/src/main/res/drawable-hdpi/background_main.xml" value="0.203125" />
         <entry key="..\:/LTtrendidong/DatingApp-new/DatingApp-master/app/src/main/res/drawable-hdpi/edittext_bg.xml" value="0.265625" />
         <entry key="..\:/LTtrendidong/DatingApp-new/DatingApp-master/app/src/main/res/drawable-hdpi/shape_login_button.xml" value="0.265625" />
+        <entry key="..\:/LTtrendidong/DatingApp-new/DatingApp-master/app/src/main/res/drawable-v21/ic_menu_gallery.xml" value="0.2520833333333333" />
         <entry key="..\:/LTtrendidong/DatingApp-new/DatingApp-master/app/src/main/res/drawable/color_flingswipe.xml" value="0.26153846153846155" />
         <entry key="..\:/LTtrendidong/DatingApp-new/DatingApp-master/app/src/main/res/drawable/edit_text_focused_bg.xml" value="0.265625" />
         <entry key="..\:/LTtrendidong/DatingApp-new/DatingApp-master/app/src/main/res/drawable/gradient_bg.xml" value="0.203125" />
+        <entry key="..\:/LTtrendidong/DatingApp-new/DatingApp-master/app/src/main/res/drawable/like_border.xml" value="0.2520833333333333" />
         <entry key="..\:/LTtrendidong/DatingApp-new/DatingApp-master/app/src/main/res/drawable/round_button_with_border.xml" value="0.26153846153846155" />
         <entry key="..\:/LTtrendidong/DatingApp-new/DatingApp-master/app/src/main/res/drawable/rounded_corner_layout.xml" value="0.29444444444444445" />
+        <entry key="..\:/LTtrendidong/DatingApp-new/DatingApp-master/app/src/main/res/drawable/seek_bar_thumb.xml" value="0.2520833333333333" />
+        <entry key="..\:/LTtrendidong/DatingApp-new/DatingApp-master/app/src/main/res/drawable/side_nav_bar.xml" value="0.2520833333333333" />
+        <entry key="..\:/LTtrendidong/DatingApp-new/DatingApp-master/app/src/main/res/drawable/white_grey_border_bottom.xml" value="0.2708333333333333" />
         <entry key="..\:/LTtrendidong/DatingApp-new/DatingApp-master/app/src/main/res/layout/active_user_item.xml" value="0.3390625" />
         <entry key="..\:/LTtrendidong/DatingApp-new/DatingApp-master/app/src/main/res/layout/activity_btn_dislike.xml" value="0.3390625" />
         <entry key="..\:/LTtrendidong/DatingApp-new/DatingApp-master/app/src/main/res/layout/activity_btn_like.xml" value="0.24947916666666667" />
-        <entry key="..\:/LTtrendidong/DatingApp-new/DatingApp-master/app/src/main/res/layout/activity_edit_profile.xml" value="0.3390625" />
-        <entry key="..\:/LTtrendidong/DatingApp-new/DatingApp-master/app/src/main/res/layout/activity_introduction_main.xml" value="0.3390625" />
+        <entry key="..\:/LTtrendidong/DatingApp-new/DatingApp-master/app/src/main/res/layout/activity_edit_profile.xml" value="0.2" />
+        <entry key="..\:/LTtrendidong/DatingApp-new/DatingApp-master/app/src/main/res/layout/activity_introduction_main.xml" value="0.22" />
         <entry key="..\:/LTtrendidong/DatingApp-new/DatingApp-master/app/src/main/res/layout/activity_login.xml" value="0.25" />
         <entry key="..\:/LTtrendidong/DatingApp-new/DatingApp-master/app/src/main/res/layout/activity_main.xml" value="0.25" />
-        <entry key="..\:/LTtrendidong/DatingApp-new/DatingApp-master/app/src/main/res/layout/activity_profile.xml" value="0.3390625" />
+        <entry key="..\:/LTtrendidong/DatingApp-new/DatingApp-master/app/src/main/res/layout/activity_matched.xml" value="0.24322916666666666" />
+        <entry key="..\:/LTtrendidong/DatingApp-new/DatingApp-master/app/src/main/res/layout/activity_profile.xml" value="0.25" />
         <entry key="..\:/LTtrendidong/DatingApp-new/DatingApp-master/app/src/main/res/layout/activity_profile_checkin_main.xml" value="0.24947916666666667" />
         <entry key="..\:/LTtrendidong/DatingApp-new/DatingApp-master/app/src/main/res/layout/activity_profile_checkin_matched.xml" value="0.24947916666666667" />
         <entry key="..\:/LTtrendidong/DatingApp-new/DatingApp-master/app/src/main/res/layout/activity_register_age.xml" value="0.18697916666666667" />
         <entry key="..\:/LTtrendidong/DatingApp-new/DatingApp-master/app/src/main/res/layout/activity_register_gender.xml" value="0.18697916666666667" />
-        <entry key="..\:/LTtrendidong/DatingApp-new/DatingApp-master/app/src/main/res/layout/activity_register_gender_prefection.xml" value="0.18697916666666667" />
+        <entry key="..\:/LTtrendidong/DatingApp-new/DatingApp-master/app/src/main/res/layout/activity_register_gender_prefection.xml" value="0.25" />
         <entry key="..\:/LTtrendidong/DatingApp-new/DatingApp-master/app/src/main/res/layout/activity_register_hobby.xml" value="0.18697916666666667" />
-        <entry key="..\:/LTtrendidong/DatingApp-new/DatingApp-master/app/src/main/res/layout/activity_registerbasic_info.xml" value="0.18697916666666667" />
+        <entry key="..\:/LTtrendidong/DatingApp-new/DatingApp-master/app/src/main/res/layout/activity_registerbasic_info.xml" value="0.25" />
         <entry key="..\:/LTtrendidong/DatingApp-new/DatingApp-master/app/src/main/res/layout/activity_settings.xml" value="0.24947916666666667" />
         <entry key="..\:/LTtrendidong/DatingApp-new/DatingApp-master/app/src/main/res/layout/activity_splash_screen.xml" value="0.18697916666666667" />
         <entry key="..\:/LTtrendidong/DatingApp-new/DatingApp-master/app/src/main/res/layout/app_bar_main.xml" value="0.22604166666666667" />
         <entry key="..\:/LTtrendidong/DatingApp-new/DatingApp-master/app/src/main/res/layout/content_main.xml" value="0.3390625" />
-        <entry key="..\:/LTtrendidong/DatingApp-new/DatingApp-master/app/src/main/res/layout/item.xml" value="0.3390625" />
+        <entry key="..\:/LTtrendidong/DatingApp-new/DatingApp-master/app/src/main/res/layout/gallery_item.xml" value="0.24322916666666666" />
+        <entry key="..\:/LTtrendidong/DatingApp-new/DatingApp-master/app/src/main/res/layout/item.xml" value="0.25" />
+        <entry key="..\:/LTtrendidong/DatingApp-new/DatingApp-master/app/src/main/res/layout/layout_top_navigation_back.xml" value="0.24322916666666666" />
         <entry key="..\:/LTtrendidong/DatingApp-new/DatingApp-master/app/src/main/res/layout/layout_top_navigation_view.xml" value="0.24947916666666667" />
+        <entry key="..\:/LTtrendidong/DatingApp-new/DatingApp-master/app/src/main/res/layout/matched_item.xml" value="0.24322916666666666" />
+        <entry key="..\:/LTtrendidong/DatingApp-new/DatingApp-master/app/src/main/res/layout/matched_user_item.xml" value="0.24322916666666666" />
+        <entry key="..\:/LTtrendidong/DatingApp-new/DatingApp-master/app/src/main/res/layout/nav_header_main.xml" value="0.24322916666666666" />
+        <entry key="..\:/LTtrendidong/DatingApp-new/DatingApp-master/app/src/main/res/menu/activity_main_drawer.xml" value="0.2359375" />
+        <entry key="..\:/LTtrendidong/DatingApp-new/DatingApp-master/app/src/main/res/menu/main.xml" value="0.2359375" />
+        <entry key="..\:/LTtrendidong/DatingApp-new/DatingApp-master/app/src/main/res/menu/top_navigation_toolbar.xml" value="0.24322916666666666" />
+        <entry key="..\:/LTtrendidong/DatingApp-new/DatingApp-master/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.2520833333333333" />
       </map>
     </option>
   </component>

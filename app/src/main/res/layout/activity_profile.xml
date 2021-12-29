@@ -1,10 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--
-   * DatingApp
-    * https://github.com/quintuslabs/DatingApp
-    * Created on 25-sept-2018.
-    * Created by : Santosh Kumar Dash:- http://santoshdash.epizy.com
-    -->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -14,9 +8,7 @@
     <!-- top navigation -->
     <include layout="@layout/layout_top_navigation_view" />
 
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@drawable/profile_bg"
@@ -60,7 +52,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
-                android:text="Santosh Kumar"
+                android:text="Diệu Linh"
                 android:textColor="@android:color/black"
                 android:textSize="20sp" />
 
@@ -70,7 +62,7 @@
                 android:layout_margin="20dp"
                 android:textSize="14dp"
                 android:gravity="center"
-                android:text="Lorem Ipsum is simply dummy text of the printing and typesetting industry. "/>
+                android:text="Bông hoa đẹp nhất. "/>
 
 
 
@@ -125,8 +117,6 @@
             android:layout_weight="3">
 
         </LinearLayout>
-
-        <!--dfs-->
     </LinearLayout>
 
 

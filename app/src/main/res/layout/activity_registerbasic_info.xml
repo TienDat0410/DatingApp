@@ -29,7 +29,7 @@
 
             <RelativeLayout
                 android:layout_width="wrap_content"
-                android:layout_height="150dp"
+                android:layout_height="250dp"
                 android:layout_centerHorizontal="true"
                 android:layout_gravity="center"
                 android:layout_margin="20dp"
@@ -37,20 +37,10 @@
                 android:orientation="horizontal">
 
                 <ImageView
-                    android:layout_width="150dp"
-                    android:layout_height="150dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="250dp"
                     android:layout_gravity="center_horizontal"
                     android:background="@drawable/bg_logo" />
-
-                <com.quintus.labs.datingapp.customfonts.TextViewBold
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentBottom="true"
-                    android:layout_marginLeft="40dp"
-                    android:text="Love Dating"
-                    android:textColor="#ff0b00"
-                    android:textSize="30dp" />
-
             </RelativeLayout>
 
 
@@ -64,16 +54,6 @@
                 android:paddingRight="25dp"
                 android:id="@+id/register_layout">
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_centerHorizontal="true"
-                    android:layout_marginTop="40dp"
-                    android:layout_marginBottom="20dp"
-                    android:text="Hey, lets get started!!!"
-                    android:textColor="#747474"
-                    android:textSize="24sp"
-                    android:textStyle="bold" />
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="match_parent"
