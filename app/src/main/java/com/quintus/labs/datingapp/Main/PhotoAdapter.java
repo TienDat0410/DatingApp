@@ -15,7 +15,7 @@ import com.bumptech.glide.Glide;
 import com.quintus.labs.datingapp.R;
 
 import java.util.List;
-
+/*github TienDatFE*/
 
 public class PhotoAdapter extends ArrayAdapter<Cards> {
     Context mContext;
