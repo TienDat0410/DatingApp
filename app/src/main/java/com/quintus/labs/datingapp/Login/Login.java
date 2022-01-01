@@ -3,6 +3,8 @@ package com.quintus.labs.datingapp.Login;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import android.util.Log;
@@ -12,76 +14,57 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.auth.api.Auth;
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
+import com.google.android.gms.auth.api.signin.GoogleSignInResult;
+import com.google.android.gms.common.ConnectionResult;
+import com.google.android.gms.common.SignInButton;
+import com.google.android.gms.common.api.GoogleApiClient;
 import com.quintus.labs.datingapp.Main.MainActivity;
 import com.quintus.labs.datingapp.R;
 
 
-public class Login extends AppCompatActivity {
-    private static final String TAG = "LoginActivity";
-
-    private Context mContext;
-    private EditText mEmail, mPassword;
+public class Login extends AppCompatActivity implements GoogleApiClient.OnConnectionFailedListener {
+    SignInButton signInButton;
+    private GoogleApiClient googleApiClient;
+    private static final int SIGN_IN = 1;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        mEmail = findViewById(R.id.input_email);
-        mPassword = findViewById(R.id.input_password);
-        mContext = Login.this;
-
-
-        init();
-    }
-
-    private boolean isStringNull(String string) {
-        Log.d(TAG, "isStringNull: checking string if null.");
-
-        return string.equals("");
-    }
-
- //
-
-    private void init() {
-        //initialize the button for logging in
-        Button btnLogin = findViewById(R.id.btn_login);
-        btnLogin.setOnClickListener(new View.OnClickListener() {
-
+        GoogleSignInOptions gsigno = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN).requestEmail().build();
+        //ánh xạ
+        googleApiClient = new GoogleApiClient.Builder(this).enableAutoManage(this, this)
+                .addApi(Auth.GOOGLE_SIGN_IN_API, gsigno).build();
+        signInButton = (SignInButton) findViewById(R.id.google_signin);
+        signInButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.d(TAG, "onClick: attempting to log in");
-
-                String email = mEmail.getText().toString();
-                String password = mPassword.getText().toString();
-
-                if (isStringNull(email) || isStringNull(password)) {
-                    Toast.makeText(mContext, "You must fill out all the fields", Toast.LENGTH_SHORT).show();
-                } else {
-
-                    Intent intent = new Intent(Login.this, MainActivity.class);
-                    startActivity(intent);
-                }
+                Intent intent = Auth.GoogleSignInApi.getSignInIntent(googleApiClient);
+                startActivityForResult(intent, SIGN_IN);
             }
         });
 
-        TextView linkSignUp = findViewById(R.id.link_signup);
-        linkSignUp.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Log.d(TAG, "onClick: navigating to register screen");
-                Intent intent = new Intent(Login.this, RegisterBasicInfo.class);
-                startActivity(intent);
-            }
-        });
-
-
     }
-
 
     @Override
-    public void onBackPressed() {
+    public void onConnectionFailed(@NonNull ConnectionResult connectionResult) {
 
     }
-
-
+    //
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        //
+        if(requestCode == SIGN_IN){
+            GoogleSignInResult result = Auth.GoogleSignInApi.getSignInResultFromIntent(data);
+            if(result.isSuccess()){
+                startActivity(new Intent(Login.this, MainActivity.class));
+                finish();
+            }else {
+                Toast.makeText(this, "Login failed!", Toast.LENGTH_SHORT).show();
+            }
+        }
+    }
 }

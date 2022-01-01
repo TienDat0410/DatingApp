@@ -7,7 +7,6 @@ import android.view.View;
 import android.widget.Button;
 
 import com.quintus.labs.datingapp.Login.Login;
-import com.quintus.labs.datingapp.Login.RegisterBasicInfo;
 import com.quintus.labs.datingapp.R;
 
 
@@ -46,7 +45,6 @@ public class IntroductionMain extends AppCompatActivity {
     }
 
     public void openEmailAddressEntryPage() {
-        Intent intent = new Intent(this, RegisterBasicInfo.class);
-        startActivity(intent);
+
     }
 }

@@ -29,7 +29,7 @@
 
                 <ImageView
                     android:layout_width="match_parent"
-                    android:layout_height="250dp"
+                    android:layout_height="350dp"
                     android:layout_gravity="center_horizontal"
                     android:background="@drawable/bg_logo" />
 
@@ -41,68 +41,17 @@
                 android:gravity="center"
                 android:orientation="vertical">
 
-
-                <com.google.android.material.textfield.TextInputLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="60dp"
-                    android:layout_marginBottom="8dp"
-                    android:layout_marginEnd="15dp"
-                    android:layout_marginStart="15dp"
-                    android:gravity="bottom">
-
-                    <com.quintus.labs.datingapp.customfonts.EditTextRegular
-                        android:id="@+id/input_email"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/edittext_bg"
-                        android:hint="Email"
-                        android:inputType="textEmailAddress"
-
-                        android:padding="15dp" />
-                </com.google.android.material.textfield.TextInputLayout>
-
-                <com.google.android.material.textfield.TextInputLayout
+                <com.google.android.gms.common.SignInButton
+                    android:id="@+id/google_signin"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:layout_marginBottom="8dp"
-                    android:layout_marginEnd="15dp"
-                    android:layout_marginStart="15dp"
-                    app:passwordToggleEnabled="true">
+                    android:layout_gravity="center"
+                    android:layout_marginStart="25dp"
+                    android:layout_marginEnd="25dp"
+                    android:layout_marginBottom="15dp"
+                    android:background="@drawable/shape_login_button" />
 
-                    <com.quintus.labs.datingapp.customfonts.EditTextRegular
-                        android:id="@+id/input_password"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/edittext_bg"
-                        android:hint="Password"
-                        android:inputType="textPassword"
-                        android:padding="15dp" />
-                </com.google.android.material.textfield.TextInputLayout>
 
-                <com.quintus.labs.datingapp.customfonts.ButtonSemiBold
-                    android:id="@+id/btn_login"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="25dp"
-                    android:layout_marginBottom="25dp"
-                    android:background="@drawable/shape_login_button"
-                    android:padding="15dp"
-                    android:text="Login"
-                    android:textColor="@color/white"
-                    android:textStyle="bold"
-                    android:layout_marginEnd="30dp"
-                    android:layout_marginStart="30dp"/>
-
-                <com.quintus.labs.datingapp.customfonts.TextViewSemiBold
-                    android:id="@+id/link_signup"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="25dp"
-                    android:gravity="center"
-                    android:text="No accout yet? Create one"
-                    android:textColor="@color/white"
-                    android:textSize="16dp" />
             </LinearLayout>
 
         </LinearLayout>

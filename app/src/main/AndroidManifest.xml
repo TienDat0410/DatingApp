@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.quintus.labs.datingapp">
+<!-- add internet to login   -->
+    <uses-permission android:name="android.permission.INTERNET"/>
 
-    <uses-permission android:name="android.permission.INTERNET" />
+
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
@@ -44,17 +46,12 @@
             </intent-filter>
         </activity>
         <activity android:name=".Login.Login" />
-        <activity android:name=".Login.RegisterBasicInfo" />
         <activity android:name=".Matched.Matched_Activity" />
         <activity android:name=".Profile.Profile_Activity" />
         <activity android:name=".Main.ProfileCheckinMain" />
         <activity android:name=".Matched.ProfileCheckinMatched" />
         <activity android:name=".Profile.EditProfileActivity" />
         <activity android:name=".Main.MainActivity" />
-        <activity android:name=".Login.RegisterGender" />
-        <activity android:name=".Login.RegisterGenderPrefection" />
-        <activity android:name=".Login.RegisterAge" />
-        <activity android:name=".Login.RegisterHobby" />
         <activity android:name=".Profile.SettingsActivity" />
         <activity android:name=".Main.BtnLikeActivity" />
         <activity android:name=".Main.BtnDislikeActivity" />
