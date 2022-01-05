@@ -4,6 +4,9 @@
       <root url="file://$USER_HOME$/.gradle/caches/transforms-3/60447b71608c45e27602c10cb9af276b/transformed/jetified-slidingdotsplash-1.0.2/AndroidManifest.xml" />
       <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/60447b71608c45e27602c10cb9af276b/transformed/jetified-slidingdotsplash-1.0.2/jars/classes.jar!/" />
       <root url="file://$USER_HOME$/.gradle/caches/transforms-3/60447b71608c45e27602c10cb9af276b/transformed/jetified-slidingdotsplash-1.0.2/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/915c777071316daa261a2a7468d6ade3/transformed/jetified-slidingdotsplash-1.0.2/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/915c777071316daa261a2a7468d6ade3/transformed/jetified-slidingdotsplash-1.0.2/AndroidManifest.xml" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/915c777071316daa261a2a7468d6ade3/transformed/jetified-slidingdotsplash-1.0.2/res" />
     </CLASSES>
     <JAVADOC>
       <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.chabbal/slidingdotsplash/1.0.2/977b2ce0c9cc55aa53551da5e86aea7295e1e9ac/slidingdotsplash-1.0.2-javadoc.jar!/" />

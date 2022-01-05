@@ -29,6 +29,20 @@ allprojects {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    // retrofit
+    implementation 'com.squareup.retrofit2:retrofit:2.1.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.1.0'
+
+    // lombok
+    compileOnly 'org.projectlombok:lombok:1.18.22'
+    annotationProcessor 'org.projectlombok:lombok:1.18.22'
+
+    testCompileOnly 'org.projectlombok:lombok:1.18.22'
+    testAnnotationProcessor 'org.projectlombok:lombok:1.18.22'
+
+    // gson
+    implementation 'com.google.code.gson:gson:2.8.9'
     //noinspection GradleCompatible
     implementation 'androidx.appcompat:appcompat:1.0.0'
     implementation 'com.google.android.material:material:1.0.0'
