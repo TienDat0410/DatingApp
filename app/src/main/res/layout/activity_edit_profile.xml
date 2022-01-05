@@ -316,7 +316,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:padding="5dp"
-                        android:text="About You"
+                        android:text="Giới thiệu về bản thân"
                         android:textSize="18dp"
                         android:textStyle="bold" />
 
@@ -325,7 +325,7 @@
                         android:layout_height="70dp"
                         android:background="@android:color/transparent"
                         android:gravity="bottom"
-                        android:hint="Write something about you" />
+                        android:hint="Viết một vài điều về bạn" />
 
                     <View
                         android:layout_width="match_parent"
@@ -337,7 +337,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:padding="5dp"
-                        android:text="Job Title"
+                        android:text="Công việc"
                         android:textSize="18dp"
                         android:textStyle="bold" />
 
@@ -346,7 +346,7 @@
                         android:layout_height="wrap_content"
                         android:background="@android:color/transparent"
                         android:gravity="bottom"
-                        android:hint="Add job title"
+                        android:hint="Thêm công việc"
                         android:padding="@dimen/_5dp" />
 
                     <View
@@ -359,7 +359,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:padding="5dp"
-                        android:text="Company"
+                        android:text="Công ty"
                         android:textSize="18dp"
                         android:textStyle="bold" />
 
@@ -368,7 +368,7 @@
                         android:layout_height="wrap_content"
                         android:background="@android:color/transparent"
                         android:gravity="bottom"
-                        android:hint="Add company"
+                        android:hint="Thêm công ty"
                         android:padding="@dimen/_5dp" />
 
                     <View
@@ -381,7 +381,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:padding="5dp"
-                        android:text="School"
+                        android:text="Nơi học"
                         android:textSize="18dp"
                         android:textStyle="bold" />
 
@@ -390,7 +390,7 @@
                         android:layout_height="wrap_content"
                         android:background="@android:color/transparent"
                         android:gravity="bottom"
-                        android:hint="Add school"
+                        android:hint="Thêm nơi học"
                         android:padding="@dimen/_5dp" />
 
                     <View
@@ -403,7 +403,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:padding="5dp"
-                        android:text="Gender"
+                        android:text="Giới tính"
                         android:textSize="18dp"
                         android:textStyle="bold" />
 
@@ -417,7 +417,7 @@
                             android:layout_height="wrap_content"
                             android:layout_centerVertical="true"
                             android:layout_margin="8dp"
-                            android:text="Man"
+                            android:text="Nam"
                             android:textColor="@color/colorAccent"
                             android:textSize="18dp" />
 
@@ -428,7 +428,7 @@
                             android:layout_alignParentEnd="true"
                             android:layout_alignParentRight="true"
                             android:layout_centerVertical="true"
-                            android:background="@drawable/ic_check_select" />
+                            android:background="@drawable/ic_check_unselect" />
                     </RelativeLayout>
 
                     <RelativeLayout
@@ -441,7 +441,7 @@
                             android:layout_height="wrap_content"
                             android:layout_centerVertical="true"
                             android:layout_margin="8dp"
-                            android:text="Woman"
+                            android:text="Nữ"
                             android:textSize="18dp" />
 
                         <Button
@@ -451,7 +451,7 @@
                             android:layout_alignParentEnd="true"
                             android:layout_alignParentRight="true"
                             android:layout_centerVertical="true"
-                            android:background="@drawable/ic_check_unselect"
+                            android:background="@drawable/ic_check_select"
                             android:visibility="visible" />
                     </RelativeLayout>
 
@@ -459,7 +459,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:padding="@dimen/_5dp"
-                        android:text="Control Your Profile"
+                        android:text="Kiểm soát hồ sơ của bạn"
                         android:textSize="18dp" />
 
                     <RelativeLayout
@@ -470,7 +470,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="10dp"
-                            android:text="Don't Show my age"
+                            android:text="Không hiển thị tuổi"
                             android:textSize="18dp" />
 
                         <androidx.appcompat.widget.SwitchCompat
@@ -497,7 +497,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="10dp"
-                            android:text="Make My Distance Invisible"
+                            android:text="Không hiện khoảng cách"
                             android:textSize="18dp" />
 
                         <androidx.appcompat.widget.SwitchCompat

@@ -44,14 +44,14 @@ public class SplashScreenActivity extends AppCompatActivity {
 
         ScaleAnimation fade_in =  new ScaleAnimation(0f, 1f, 0f, 1f, Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF, 0.5f);
         fade_in.setDuration(3000);
-        fade_in.setFillAfter(true);    // If fillAfter is true, the transformation that this animation performed will persist when it is finished.
+        fade_in.setFillAfter(true);
         findViewById(R.id.imageView).startAnimation(fade_in);
 
 
         new Timer().schedule(new TimerTask() {
             @Override
             public void run() {
-                startActivity(new Intent(getApplicationContext(), Login.class));
+                startActivity(new Intent(getApplicationContext(), MainActivity.class));//Login.class nha đang test
             }
         }, 4000);
 

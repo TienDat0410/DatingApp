@@ -3,8 +3,6 @@
     package="com.quintus.labs.datingapp">
 <!-- add internet to login   -->
     <uses-permission android:name="android.permission.INTERNET"/>
-
-
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
@@ -38,14 +36,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Introduction.IntroductionMain">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity android:name=".Login.Login" />
+        <activity android:name=".Login.Login"/>
         <activity android:name=".Matched.Matched_Activity" />
         <activity android:name=".Profile.Profile_Activity" />
         <activity android:name=".Main.ProfileCheckinMain" />

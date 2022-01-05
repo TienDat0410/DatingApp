@@ -71,11 +71,11 @@ public class Matched_Activity extends AppCompatActivity {
     private void prepareActiveData() {
         Users users = new Users("1", "Ali Al-Adba", 35, "https://baoquocte.vn/stores/news_dataimages/thanhtruc/122021/25/12/aff-cup-2020-trong-tai-tran-viet-nam-thai-lan-al-adba-saoud-ali-roi-singapore.jpg?rt=20211225120159", "Cầu thử số 12", "Acting", 200);
         usersList.add(users);
-        users = new Users("2", "Ananaya Pandy", 20, "https://i0.wp.com/profilepicturesdp.com/wp-content/uploads/2018/06/beautiful-indian-girl-image-for-profile-picture-8.jpg", "cool Minded Girl", "Dancing", 800);
+        users = new Users("2", "Thuỳ Duyên", 20, "https://i.pinimg.com/564x/7d/d5/e3/7dd5e3cfa515d800e6a0c2a40638c2a3.jpg", "cool Minded Girl", "Dancing", 800);
         usersList.add(users);
-        users = new Users("3", "Anjali Kasyap", 22, "https://pbs.twimg.com/profile_images/967542394898952192/_M_eHegh_400x400.jpg", "Simple and beautiful Girl", "Singing", 400);
+        users = new Users("3", "Ngọc Vũ", 22, "https://i.pinimg.com/564x/ab/18/93/ab18939da2b85ea5959349dc4ad996c2.jpg", "Simple and beautiful Girl", "Singing", 400);
         usersList.add(users);
-        users = new Users("7", "Sudeshna Roy", 19, "https://talenthouse-res.cloudinary.com/image/upload/c_fill,f_auto,h_640,w_640/v1411380245/user-415406/submissions/hhb27pgtlp9akxjqlr5w.jpg", "Papa's Pari", "Art", 5000);
+        users = new Users("7", "Diệu Linh", 19, "https://i.pinimg.com/564x/4a/5e/7d/4a5e7deed283397043b3c394fb00f565.jpg", "OhNo", "Art", 5000);
         usersList.add(users);
 
         adapter.notifyDataSetChanged();

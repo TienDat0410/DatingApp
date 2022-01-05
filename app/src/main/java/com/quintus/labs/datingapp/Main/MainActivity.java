@@ -78,25 +78,6 @@ public class MainActivity extends Activity {
         rowItems.add(cards);
         cards = new Cards("9", "Suri Suri", 10, "https://i.pinimg.com/564x/5d/a2/70/5da27003cba271fe295a787ea3fba410.jpg", "in4", "Sleep", 4500);
         rowItems.add(cards);
-//        Cards cards = new Cards("1", "Diệu Linh", 21, R.drawable.user1, "Simple and beautiful Girl", "Acting", 200);
-//        rowItems.add(cards);
-//        cards = new Cards("2", "Trà Giang", 20, R.drawable.user2, "cool Minded Girl", "Dancing", 800);
-//        rowItems.add(cards);
-//        cards = new Cards("3", "Phương Uyên", 22, R.drawable.user4, "Simple and beautiful Girl", "Singing", 400);
-//        rowItems.add(cards);
-//        cards = new Cards("4", "Thuý", 19, R.drawable.user5, "dashing girl", "swiming", 1308);
-//        rowItems.add(cards);
-//        cards = new Cards("5", "Thị Ngọc", 20, R.drawable.user6, "chulbuli nautankibaj ", "Drawing", 1200);
-//        rowItems.add(cards);
-//        cards = new Cards("6", "Hạnh Hạnh", 21, R.drawable.user7, "Simple and beautiful Girl", "Sleeping", 700);
-//        rowItems.add(cards);
-//        cards = new Cards("7", "Thu Kiều", 19, R.drawable.user8, "Papa's Pari", "Art", 5000);
-//        rowItems.add(cards);
-//        cards = new Cards("8", "Hot gir", 19, R.drawable.user9, "suppermen", "Art", 3000);
-//        rowItems.add(cards);
-//        cards = new Cards("9", "Suri Suri", 10, R.drawable.user3, "in4", "Sleep", 4500);
-//        rowItems.add(cards);
-
         arrayAdapter = new PhotoAdapter(this, R.layout.item, rowItems);
 
         checkRowItem();

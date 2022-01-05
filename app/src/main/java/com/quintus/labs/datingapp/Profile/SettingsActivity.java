@@ -10,7 +10,6 @@ import android.widget.ImageButton;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
-import com.quintus.labs.datingapp.Introduction.IntroductionMain;
 import com.quintus.labs.datingapp.R;
 import com.yahoo.mobile.client.android.util.rangeseekbar.RangeSeekBar;
 
@@ -96,12 +95,4 @@ public class SettingsActivity extends AppCompatActivity {
 
 
     }
-
-    public void Logout(View view) {
-        startActivity(new Intent(getApplicationContext(), IntroductionMain.class));
-        finish();
-
-    }
-
-
 }
