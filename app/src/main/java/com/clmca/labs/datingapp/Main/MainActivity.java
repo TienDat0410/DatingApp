@@ -18,6 +18,7 @@ import android.widget.FrameLayout;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.google.gson.Gson;
 import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx;
 import com.lorentzos.flingswipe.SwipeFlingAdapterView;
 import com.clmca.labs.datingapp.R;
@@ -78,6 +79,10 @@ public class MainActivity extends Activity {
         rowItems.add(cards);
         cards = new Cards("9", "Suri Suri", 10, "https://i.pinimg.com/564x/5d/a2/70/5da27003cba271fe295a787ea3fba410.jpg", "in4", "Sleep", 4500);
         rowItems.add(cards);
+        //convert card sang gson
+//        Gson gson = new Gson();
+//        String strGson = gson.toJson(cards);
+//        Log.e("String JSON", strGson);
         arrayAdapter = new PhotoAdapter(this, R.layout.item, rowItems);
 
         checkRowItem();

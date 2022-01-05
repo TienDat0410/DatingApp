@@ -3,12 +3,14 @@ package com.clmca.labs.datingapp.Login;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.clmca.labs.datingapp.Model.Authorities;
+import com.clmca.labs.datingapp.Model.CardsApi;
+import com.clmca.labs.datingapp.api.ApiService;
 import com.google.android.gms.auth.api.Auth;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
@@ -84,19 +86,19 @@ public class Login extends AppCompatActivity implements GoogleApiClient.OnConnec
 
             String idToken = account.getIdToken();
 
-            GoogleAuthenticationRequest request = GoogleAuthenticationRequest.builder()
+            Authorities request = Authorities.builder()
                     .idToken(idToken)
                     .build();
 
-            ApiService.apiService.getAuthenticationToken(request).enqueue(new Callback<AuthenticationResponse>() {
+            ApiService.apiService.getAuthenticationToken(request).enqueue(new Callback<CardsApi>() {
                 @Override
-                public void onResponse(Call<AuthenticationResponse> call, Response<AuthenticationResponse> response) {
-                    AuthenticationResponse body = response.body();
+                public void onResponse(Call<CardsApi> call, Response<CardsApi> response) {
+                    CardsApi body = response.body();
                     String fullName = body.getFullName();
                 }
 
                 @Override
-                public void onFailure(Call<AuthenticationResponse> call, Throwable t) {
+                public void onFailure(Call<CardsApi> call, Throwable t) {
                     String message = t.getMessage();
                 }
             });

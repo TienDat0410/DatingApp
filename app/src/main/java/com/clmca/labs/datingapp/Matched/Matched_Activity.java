@@ -13,6 +13,9 @@ import android.view.MenuItem;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 
+import com.cometchat.pro.core.AppSettings;
+import com.cometchat.pro.core.CometChat;
+import com.cometchat.pro.exceptions.CometChatException;
 import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx;
 import com.clmca.labs.datingapp.R;
 import com.clmca.labs.datingapp.Utils.TopNavigationViewHelper;
@@ -112,6 +115,24 @@ public class Matched_Activity extends AppCompatActivity {
         Menu menu = tvEx.getMenu();
         MenuItem menuItem = menu.getItem(ACTIVITY_NUM);
         menuItem.setChecked(true);
+    }
+    // khởi tạo chat
+    private void initCometChat(){
+        AppSettings appSettings=new AppSettings.AppSettingsBuilder()
+                .subscribePresenceForAllUsers()
+                .setRegion(UserChat.region)
+                .autoEstablishSocketConnection(true)
+                .build();
+        CometChat.init(this, UserChat.APP_ID,appSettings, new CometChat.CallbackListener<String>() {
+            @Override
+            public void onSuccess(String successMessage) {
+                Log.d(TAG, "Initialization completed successfully");
+            }
+            @Override
+            public void onError(CometChatException e) {
+                Log.d(TAG, "Initialization failed with exception: " + e.getMessage());
+            }
+        });
     }
 
 

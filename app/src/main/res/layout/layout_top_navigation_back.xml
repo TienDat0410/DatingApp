@@ -19,7 +19,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:layout_marginLeft="10dp"
-            android:text="TinHub"
+            android:text="TinHong"
             android:textColor="@color/texttitletin_hub"
             android:textSize="25sp"
             android:textStyle="bold" />
