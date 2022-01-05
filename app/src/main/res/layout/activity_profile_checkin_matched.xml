@@ -12,7 +12,7 @@
         <!-- contain back activity -->
         <include layout="@layout/layout_top_navigation_back" />
 
-        <com.quintus.labs.datingapp.Utils.SquareImageView
+        <com.clmca.labs.datingapp.Utils.SquareImageView
             android:id="@+id/image_matched"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
