@@ -140,5 +140,8 @@
     <color name="black_overlay">#66000000</color>
 <!--new color    -->
     <color name="deepblue">#00BFFF</color>
-
+<!--    text title tin hub-->
+    <color name="texttitletin_hub">#f650a0</color>
+<!--    textborder edt-->
+    <color name="textborder_edt">#c2e9fb</color>
 </resources>

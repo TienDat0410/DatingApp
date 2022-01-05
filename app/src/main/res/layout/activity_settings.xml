@@ -38,7 +38,7 @@
                         android:layout_height="wrap_content"
                         android:paddingLeft="10dp"
                         android:paddingTop="10dp"
-                        android:text="Show Me"
+                        android:text="Hiển thị thông tin của tôi"
                         android:textColor="@color/colorPrimaryDark"
                         android:textSize="18dp"
                         android:textStyle="bold" />
@@ -51,7 +51,7 @@
                         android:gravity="end"
                         android:paddingEnd="10dp"
                         android:paddingRight="10dp"
-                        android:text="Women"
+                        android:text="Nữ"
                         android:textColor="@color/black"
                         android:textSize="16dp" />
 
@@ -63,7 +63,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:padding="10dp"
-                            android:text="Men"
+                            android:text="Nam"
                             android:textSize="18dp" />
 
                         <androidx.appcompat.widget.SwitchCompat
@@ -89,7 +89,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:padding="10dp"
-                            android:text="Women"
+                            android:text="Nữ"
                             android:textSize="18dp" />
 
                         <androidx.appcompat.widget.SwitchCompat
@@ -129,7 +129,7 @@
                         android:layout_height="wrap_content"
                         android:paddingLeft="10dp"
                         android:paddingTop="10dp"
-                        android:text="Maximum Distance"
+                        android:text="Khoảng cách tối đâ"
                         android:textColor="@color/colorPrimaryDark"
                         android:textSize="18dp"
                         android:textStyle="bold" />
@@ -179,7 +179,7 @@
                         android:layout_height="wrap_content"
                         android:paddingLeft="10dp"
                         android:paddingTop="10dp"
-                        android:text="Age Range"
+                        android:text="Độ tuổi"
                         android:textColor="@color/colorPrimaryDark"
                         android:textSize="18dp"
                         android:textStyle="bold" />
@@ -214,7 +214,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:padding="10dp"
-                android:text="App Setting"
+                android:text="Thiết lập"
                 android:textColor="@color/black"
                 android:textSize="18dp"
                 android:textStyle="bold" />
@@ -237,7 +237,7 @@
                         android:layout_height="wrap_content"
                         android:paddingLeft="10dp"
                         android:paddingTop="10dp"
-                        android:text="Notification"
+                        android:text="Thông báo"
                         android:textColor="@color/colorPrimaryDark"
                         android:textSize="18dp"
                         android:textStyle="bold" />
@@ -251,7 +251,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="New matches"
+                            android:text="Người tham gia mới"
                             android:textColor="@color/black"
                             android:textSize="18dp" />
 
@@ -279,7 +279,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Message"
+                            android:text="Tin nhắn"
                             android:textColor="@color/black"
                             android:textSize="18dp" />
 
@@ -308,7 +308,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Message Likes"
+                            android:text="Người thíc"
                             android:textColor="@color/black"
                             android:textSize="18dp" />
 
@@ -334,7 +334,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:padding="10dp"
-                android:text="Contact Us"
+                android:text="Thông tin về chúng tôi"
                 android:textColor="@color/black"
                 android:textSize="18dp"
                 android:textStyle="bold" />
@@ -352,7 +352,7 @@
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:padding="10dp"
-                    android:text="Help &amp; Support"
+                    android:text="Trợ giúp &amp; Hỏi đáp"
                     android:textSize="20dp" />
             </androidx.cardview.widget.CardView>
 
@@ -375,7 +375,7 @@
                         android:layout_height="wrap_content"
                         android:gravity="center"
                         android:padding="10dp"
-                        android:text="Share"
+                        android:text="Chia sẻ"
                         android:textSize="20dp" />
 
                     <TextView
@@ -383,60 +383,12 @@
                         android:layout_height="wrap_content"
                         android:gravity="center"
                         android:padding="10dp"
-                        android:text="Purchase"
+                        android:text="By nhóm CLMCA"
                         android:textSize="20dp" />
 
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
-
-            <androidx.cardview.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="10dp"
-                app:cardCornerRadius="4dp"
-                app:cardElevation="4dp"
-                app:cardUseCompatPadding="true">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:padding="10dp"
-                        android:text=" Legal"
-                        android:textColor="@color/colorPrimaryDark"
-                        android:textSize="18dp" />
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:padding="10dp"
-                        android:text="Licenses"
-                        android:textColor="@color/black"
-                        android:textSize="20dp" />
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:padding="10dp"
-                        android:text="Privacy Policy"
-                        android:textColor="@color/black"
-                        android:textSize="20dp" />
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:padding="10dp"
-                        android:text="Terms of Service"
-                        android:textColor="@color/black"
-                        android:textSize="20dp" />
-
-                </LinearLayout>
-            </androidx.cardview.widget.CardView>
-
+<!--Logout            -->
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -481,7 +433,7 @@
                         android:layout_height="wrap_content"
                         android:gravity="center"
                         android:padding="10dp"
-                        android:text=" Delete Account"
+                        android:text=" Vô hiệu hoá tài khoản"
                         android:textColor="@color/colorPrimaryDark"
                         android:textSize="18dp" />
 

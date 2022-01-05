@@ -25,7 +25,7 @@
             android:id="@+id/mui_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="santosh Dash"
+            android:text="Diệu Linh"
             android:textColor="@color/black"
             android:textSize="18dp" />
 
@@ -33,7 +33,7 @@
             android:id="@+id/mui_profession"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Student"
+            android:text="Học sinh"
             android:textColor="@color/gray_btn_bg_pressed_color"
             android:textSize="16dp" />
 

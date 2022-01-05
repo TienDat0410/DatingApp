@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_setting">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -45,18 +45,18 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/light_grey"
+            android:background="@color/textborder_edt"
             android:paddingLeft="10dp"
             android:paddingTop="5dp"
             android:paddingBottom="5dp"
-            android:text="Bio:"
+            android:text="Tiểu sử:"
             android:textSize="18sp" />
 
         <TextView
             android:id="@+id/bio_match"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="User has not updated the Bio!!!"
+            android:hint="Người dùng chưa cập nhật tiểu sử!!!"
             android:paddingLeft="10dp"
             android:paddingTop="10dp"
             android:paddingBottom="10dp"
@@ -69,7 +69,7 @@
             android:paddingLeft="10dp"
             android:paddingTop="5dp"
             android:paddingBottom="5dp"
-            android:text="Interests:"
+            android:text="Sở thích:"
             android:textSize="18sp" />
 
         <TextView
@@ -89,7 +89,7 @@
             android:paddingLeft="10dp"
             android:paddingTop="5dp"
             android:paddingBottom="5dp"
-            android:text="Phone:"
+            android:text="Số điện thoại:"
             android:textSize="18sp" />
 
         <LinearLayout
@@ -104,7 +104,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:hint="Phone Number is not updated!!!"
+                android:hint="Số điện thoại chưa được cập nhật!!!"
                 android:textSize="16sp" />
 
             <Button

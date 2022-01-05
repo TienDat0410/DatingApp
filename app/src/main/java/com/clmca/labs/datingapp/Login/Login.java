@@ -103,7 +103,7 @@ public class Login extends AppCompatActivity implements GoogleApiClient.OnConnec
 
 
         } else {
-            Toast.makeText(Login.this, "Login false", Toast.LENGTH_SHORT).show();
+            //Toast.makeText(Login.this, "Login false", Toast.LENGTH_SHORT).show();// login vô được mà chạy vào đây
         }
     }
 

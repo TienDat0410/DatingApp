@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
+    android:background="@drawable/bg_setting"
     android:orientation="vertical">
     <include layout="@layout/layout_top_navigation_back" />
 
@@ -416,7 +416,10 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_centerVertical="true"
-                            android:layout_margin="8dp"
+                            android:layout_marginStart="8dp"
+                            android:layout_marginTop="8dp"
+                            android:layout_marginEnd="8dp"
+                            android:layout_marginBottom="8dp"
                             android:text="Nam"
                             android:textColor="@color/colorAccent"
                             android:textSize="18dp" />
@@ -442,7 +445,8 @@
                             android:layout_centerVertical="true"
                             android:layout_margin="8dp"
                             android:text="Nữ"
-                            android:textSize="18dp" />
+                            android:textSize="18dp"
+                            android:textColor="@color/colorAccent"/>
 
                         <Button
                             android:id="@+id/woman_button"
