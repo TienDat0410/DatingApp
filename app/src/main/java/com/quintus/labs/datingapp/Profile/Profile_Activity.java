@@ -2,11 +2,8 @@ package com.quintus.labs.datingapp.Profile;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -15,13 +12,14 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx;
 import com.quintus.labs.datingapp.R;
 import com.quintus.labs.datingapp.Utils.PulsatorLayout;
 import com.quintus.labs.datingapp.Utils.TopNavigationViewHelper;
-
-import java.util.ArrayList;
-import java.util.List;
+import com.quintus.labs.datingapp.service.sharedprefs.SharedPrefs;
+import com.squareup.picasso.Picasso;
 
 /**
  * Grocery App
@@ -39,7 +37,6 @@ public class Profile_Activity extends AppCompatActivity {
     private TextView name;
 
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         Log.d(TAG, "onCreate: create the page");
@@ -54,6 +51,17 @@ public class Profile_Activity extends AppCompatActivity {
         imagePerson = findViewById(R.id.circle_profile_image);
         name = findViewById(R.id.profile_name);
 
+        // set view info
+
+        SharedPreferences prefs = SharedPrefs.getInstance();
+
+        String fullname = prefs.getString("fullname", "No name defined");
+        String avatar = prefs.getString("avatar", "https://scontent.fdad3-1.fna.fbcdn.net/v/t1.18169-9/1377536_426623927449982_1794733026_n.jpg?_nc_cat=103&ccb=1-5&_nc_sid=09cbfe&_nc_ohc=_pxXYQ7B9YIAX_lSSQP&_nc_ht=scontent.fdad3-1.fna&oh=00_AT8yuQVTgPuwoHl-QuG8a4lXcBIWshHfIEYvEcyaBgTveA&oe=61FADDB6");
+
+
+        name.setText(fullname);
+
+        Picasso.get().load(avatar).into(imagePerson);
 
         ImageButton edit_btn = findViewById(R.id.edit_profile);
         edit_btn.setOnClickListener(new View.OnClickListener() {
@@ -72,7 +80,6 @@ public class Profile_Activity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
 
 
     }
@@ -94,7 +101,6 @@ public class Profile_Activity extends AppCompatActivity {
         MenuItem menuItem = menu.getItem(ACTIVITY_NUM);
         menuItem.setChecked(true);
     }
-
 
 
 }

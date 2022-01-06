@@ -1,6 +1,8 @@
 package com.quintus.labs.datingapp.Login;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Toast;
@@ -18,6 +20,8 @@ import com.google.android.gms.common.SignInButton;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.quintus.labs.datingapp.Main.MainActivity;
 import com.quintus.labs.datingapp.R;
+import com.quintus.labs.datingapp.service.api.ApiService;
+import com.quintus.labs.datingapp.service.sharedprefs.SharedPrefs;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -30,8 +34,13 @@ public class Login extends AppCompatActivity implements GoogleApiClient.OnConnec
 
     private static final int RC_SIGN_IN = 1;
 
+
+    public static Context contextOfApplication;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
+
+        contextOfApplication = getApplicationContext();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         //Yêu cầu cung cáp thông tin email....
@@ -73,8 +82,7 @@ public class Login extends AppCompatActivity implements GoogleApiClient.OnConnec
             GoogleSignInResult result = Auth.GoogleSignInApi.getSignInResultFromIntent(data);
 
             handleSigninResult(result);
-            startActivity(new Intent(Login.this, MainActivity.class));
-            finish();
+
         }
     }
 
@@ -92,12 +100,25 @@ public class Login extends AppCompatActivity implements GoogleApiClient.OnConnec
                 @Override
                 public void onResponse(Call<AuthenticationResponse> call, Response<AuthenticationResponse> response) {
                     AuthenticationResponse body = response.body();
-                    String fullName = body.getFullName();
+
+                    SharedPreferences instance = SharedPrefs.getInstance();
+                    SharedPreferences.Editor editor = instance.edit();
+
+                    editor.putString("fullname", body.getFullName());
+                    editor.putString("jwt", body.getJwt());
+                    editor.putString("username", body.getUsername());
+                    editor.putString("avatar", body.getAvatar());
+                    editor.putString("locale", body.getLocale());
+                    editor.apply();
+
+
+                    startActivity(new Intent(Login.this, MainActivity.class));
+                    finish();
                 }
 
                 @Override
                 public void onFailure(Call<AuthenticationResponse> call, Throwable t) {
-                    String message = t.getMessage();
+                    Toast.makeText(Login.this, "Login false:" + t.getMessage(), Toast.LENGTH_SHORT).show();
                 }
             });
 
@@ -105,6 +126,10 @@ public class Login extends AppCompatActivity implements GoogleApiClient.OnConnec
         } else {
             Toast.makeText(Login.this, "Login false", Toast.LENGTH_SHORT).show();
         }
+    }
+
+    public static Context getContextOfApplication(){
+        return contextOfApplication;
     }
 
 

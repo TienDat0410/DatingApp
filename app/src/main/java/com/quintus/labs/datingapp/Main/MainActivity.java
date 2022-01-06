@@ -41,6 +41,7 @@ public class MainActivity extends Activity {
     private Cards cards_data[];
     private PhotoAdapter arrayAdapter;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -237,6 +238,8 @@ public class MainActivity extends Activity {
     public void onBackPressed() {
 
     }
+
+
 
 
 }

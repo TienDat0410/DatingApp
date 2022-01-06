@@ -10,10 +10,13 @@ import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
 import android.provider.Settings;
+
+import androidx.annotation.RequiresApi;
 import androidx.core.app.ActivityCompat;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
@@ -28,12 +31,22 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.quintus.labs.datingapp.R;
+import com.quintus.labs.datingapp.service.api.ApiService;
+import com.quintus.labs.datingapp.service.UploadFileResponse;
+import com.squareup.picasso.Picasso;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
+import okhttp3.MediaType;
+import okhttp3.MultipartBody;
+import okhttp3.RequestBody;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 /**
  * DatingApp
@@ -61,7 +74,7 @@ public class EditProfileActivity extends AppCompatActivity {
     private String userId, profileImageUri;
     private Uri resultUri;
     private String userSex;
-    private EditText phoneNumber, aboutMe;
+    private EditText phoneNumber, txtAboutme;
     private CheckBox sportsCheckBox, travelCheckBox, musicCheckBox, fishingCheckBox;
     private boolean isSportsClicked = false;
     private boolean isTravelClicked = false;
@@ -72,6 +85,11 @@ public class EditProfileActivity extends AppCompatActivity {
     private boolean sentToSettings = false;
     private int REQUEST_CAMERA = 0, SELECT_FILE = 1;
     private String userChoosenTask;
+
+
+    private EditText txtJob, txtCompany, txtSchool;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -86,11 +104,45 @@ public class EditProfileActivity extends AppCompatActivity {
         imageView4 = findViewById(R.id.image_view_4);
         imageView5 = findViewById(R.id.image_view_5);
         imageView6 = findViewById(R.id.image_view_6);
+
         man = findViewById(R.id.man_button);
         woman = findViewById(R.id.woman_button);
         man_text = findViewById(R.id.man_text);
         women_text = findViewById(R.id.woman_text);
         back = findViewById(R.id.back);
+
+        // set text to edit text
+
+
+        txtJob = findViewById(R.id.txtJobDescription);
+        txtCompany = findViewById(R.id.txtCompany);
+        txtSchool = findViewById(R.id.txtSchool);
+        txtAboutme = findViewById(R.id.txtAbout);
+
+
+
+
+        ApiService.apiService.getProfile().enqueue(new Callback<ProfileResponse>() {
+
+            @Override
+            public void onResponse(Call<ProfileResponse> call, Response<ProfileResponse> response) {
+                ProfileResponse body = response.body();
+                txtJob.setText(body.getJobDescription());
+                txtCompany.setText(body.getCompany());
+                txtSchool.setText(body.getSchool());
+                txtAboutme.setText(body.getAbout());
+            }
+
+            @Override
+            public void onFailure(Call<ProfileResponse> call, Throwable t) {
+                Toast.makeText(EditProfileActivity.this, "Error:" + t.getMessage(), Toast.LENGTH_SHORT).show();
+                finish();
+            }
+        });
+
+
+
+
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -299,6 +351,7 @@ public class EditProfileActivity extends AppCompatActivity {
         startActivityForResult(intent, REQUEST_CAMERA);
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.R)
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -316,27 +369,68 @@ public class EditProfileActivity extends AppCompatActivity {
         }
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.R)
     private void onCaptureImageResult(Intent data) {
         Bitmap thumbnail = (Bitmap) data.getExtras().get("data");
         ByteArrayOutputStream bytes = new ByteArrayOutputStream();
-        thumbnail.compress(Bitmap.CompressFormat.JPEG, 90, bytes);
+        thumbnail.compress(Bitmap.CompressFormat.JPEG, 100, bytes);
 
         File destination = new File(Environment.getExternalStorageDirectory(),
                 System.currentTimeMillis() + ".jpg");
 
         FileOutputStream fo;
         try {
+
+
+            if (extracted()) return;
+
+
             destination.createNewFile();
             fo = new FileOutputStream(destination);
             fo.write(bytes.toByteArray());
             fo.close();
+
+            uploadFile(destination);
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
         }
 
-        imageView.setImageBitmap(thumbnail);
+
+        //imageView.setImageBitmap(thumbnail);
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.R)
+    private boolean extracted() {
+        if (!Environment.isExternalStorageManager()) {
+            Intent intent = new Intent(Settings.ACTION_MANAGE_ALL_FILES_ACCESS_PERMISSION);
+            startActivity(intent);
+            return true;
+        }
+        return false;
+    }
+
+    private void uploadFile(File file) {
+
+        RequestBody fbody = RequestBody.create(MediaType.parse("image/*"),
+                file);
+        MultipartBody.Part image = MultipartBody.Part.createFormData("image", file.getName(), fbody);
+
+
+        ApiService.apiService.uploadFile(image).enqueue(new Callback<UploadFileResponse>() {
+            @Override
+            public void onResponse(Call<UploadFileResponse> call, Response<UploadFileResponse> response) {
+                UploadFileResponse body = response.body();
+                String link = body.data.link;
+                Picasso.get().load(link).into(imageView);
+            }
+
+            @Override
+            public void onFailure(Call<UploadFileResponse> call, Throwable t) {
+
+            }
+        });
     }
 
     @SuppressWarnings("deprecation")
@@ -351,9 +445,31 @@ public class EditProfileActivity extends AppCompatActivity {
             }
         }
 
+
+
         imageView.setImageBitmap(bm);
     }
 
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+
+        SaveProfileRequest request = SaveProfileRequest.builder().build();
+
+        ApiService.apiService.saveProfile(request).enqueue(new Callback<Void>() {
+            @Override
+            public void onResponse(Call<Void> call, Response<Void> response) {
+                Toast.makeText(EditProfileActivity.this, "Update profile success", Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onFailure(Call<Void> call, Throwable t) {
+                Toast.makeText(EditProfileActivity.this, "Error:" + t.getMessage(), Toast.LENGTH_SHORT).show();
+            }
+        });
+
+
+    }
 
     @Override
     protected void onPostResume() {
