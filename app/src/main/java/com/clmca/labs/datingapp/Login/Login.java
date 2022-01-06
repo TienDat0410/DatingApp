@@ -10,7 +10,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.clmca.labs.datingapp.Model.Authorities;
 import com.clmca.labs.datingapp.Model.CardsApi;
-import com.clmca.labs.datingapp.api.ApiService;
+import com.clmca.labs.datingapp.Model.ApiService;
 import com.google.android.gms.auth.api.Auth;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;

@@ -12,6 +12,7 @@ import android.view.animation.Animation;
 import android.view.animation.ScaleAnimation;
 import android.widget.ImageView;
 
+import com.clmca.labs.datingapp.Login.Login;
 import com.clmca.labs.datingapp.Main.MainActivity;
 
 import java.util.Timer;
@@ -43,9 +44,9 @@ public class SplashScreenActivity extends AppCompatActivity {
         new Timer().schedule(new TimerTask() {
             @Override
             public void run() {
-                startActivity(new Intent(getApplicationContext(), MainActivity.class));//Login.class nha đang test
+                startActivity(new Intent(getApplicationContext(), Login.class));//Login.class nha đang test
             }
-        }, 4000);
+        }, 5000);
 
 
     }

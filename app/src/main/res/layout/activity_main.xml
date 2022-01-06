@@ -81,7 +81,8 @@
                         android:background="@drawable/round_button_with_border"
                         android:elevation="7dp"
                         android:padding="10dp"
-                        android:src="@drawable/ic_mess" />
+                        android:src="@drawable/ic_mess"
+                        android:onClick="btnMess"/>
 
 
                     <ImageButton

@@ -1,7 +1,5 @@
-package com.clmca.labs.datingapp.api;
+package com.clmca.labs.datingapp.Model;
 
-import com.clmca.labs.datingapp.Model.Authorities;
-import com.clmca.labs.datingapp.Model.CardsApi;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
@@ -13,6 +11,7 @@ import retrofit2.http.POST;
 
 public interface ApiService {
     //init gson
+    //128.199.171.126:8081/
     Gson gson = new GsonBuilder().setDateFormat("yyyy-MM-dd HH:mm:ss")
             .create();
 
@@ -23,6 +22,6 @@ public interface ApiService {
             .create(ApiService.class);
 
     @POST("authentication/google/login")
-    Call<CardsApi> getAuthenticationToken(@Body Authorities body);
+    Call<CardsApi> getAuthenticationToken(@Body Authorities body);//
 
 }

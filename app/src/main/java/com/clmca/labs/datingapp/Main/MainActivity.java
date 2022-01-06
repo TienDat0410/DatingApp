@@ -18,6 +18,7 @@ import android.widget.FrameLayout;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.clmca.labs.datingapp.chat.ChatActivity;
 import com.google.gson.Gson;
 import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx;
 import com.lorentzos.flingswipe.SwipeFlingAdapterView;
@@ -38,7 +39,7 @@ public class MainActivity extends Activity {
     List<Cards> rowItems;
     FrameLayout cardFrame, moreFrame;
     private Context mContext = MainActivity.this;
-    private NotificationHelper mNotificationHelper;
+//    private NotificationHelper mNotificationHelper;
     private Cards cards_data[];
     private PhotoAdapter arrayAdapter;
 
@@ -53,7 +54,7 @@ public class MainActivity extends Activity {
         // start pulsator
         PulsatorLayout mPulsator = findViewById(R.id.pulsator);
         mPulsator.start();
-        mNotificationHelper = new NotificationHelper(this);
+//        mNotificationHelper = new NotificationHelper(this);
 
 
         setupTopNavigationView();
@@ -184,11 +185,11 @@ public class MainActivity extends Activity {
     }
 
 
-    public void sendNotification() {
-        NotificationCompat.Builder nb = mNotificationHelper.getChannel1Notification(mContext.getString(R.string.app_name), mContext.getString(R.string.match_notification));
-
-        mNotificationHelper.getManager().notify(1, nb.build());
-    }
+//    public void sendNotification() {
+//        NotificationCompat.Builder nb = mNotificationHelper.getChannel1Notification(mContext.getString(R.string.app_name), mContext.getString(R.string.match_notification));
+//
+//        mNotificationHelper.getManager().notify(1, nb.build());
+//    }
 
 
     public void DislikeBtn(View v) {
@@ -243,5 +244,11 @@ public class MainActivity extends Activity {
 
     }
 
+//chat
+    public void btnMess(View view) {
+        Intent intent = new Intent(mContext, ChatActivity.class);
+        Bundle b = new Bundle();
 
+
+    }
 }
