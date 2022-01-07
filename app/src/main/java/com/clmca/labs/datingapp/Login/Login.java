@@ -59,6 +59,7 @@ public class Login extends AppCompatActivity implements GoogleApiClient.OnConnec
         signInButton.setSize(SignInButton.SIZE_STANDARD);
 
 
+
     }
 
     @Override

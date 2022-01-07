@@ -15,7 +15,7 @@ import com.clmca.labs.datingapp.Utils.SquareImageView;
 
 
 public class ProfileCheckinMain extends AppCompatActivity {
-    private Button btnMoreImg;
+    private Button btnMoreImg, btnbeforeImg;
     private Context mContext;
     String profileImageUrl;
     String moreImageUr;
@@ -68,6 +68,15 @@ public class ProfileCheckinMain extends AppCompatActivity {
                 Glide.with(mContext).load(moreImageUr).into(moreImage);
             }
         });
+        //xem ảnh trước
+        btnbeforeImg = (Button) findViewById(R.id.beforeImg);
+        btnbeforeImg.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Glide.with(mContext).load(profileImageUrl).into(profileImage);
+            }
+        });
+
 
     }
 
