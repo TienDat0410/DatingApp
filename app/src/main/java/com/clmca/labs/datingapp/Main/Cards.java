@@ -10,13 +10,12 @@ public class Cards {
     private String name;
     private String bio;
     private String profileImageUr;
+    private String moreImageUr;
     private String interest;
-//    private String profileImageUr;
-//    private int profileImageUrl;
     private int age;
     private int distance;
 
-    public Cards(String userId, String name, int age, String profileImageUrl, String bio, String interest, int distance) {
+    public Cards(String userId, String name, int age, String profileImageUrl, String bio, String interest, int distance, String moreImageUr) {
         this.userId = userId;
         this.name = name;
         this.age = age;
@@ -24,6 +23,7 @@ public class Cards {
         this.bio = bio;
         this.interest = interest;
         this.distance = distance;
+        this.moreImageUr = moreImageUr;
     }
 
     public Cards(String profileImageUrl) {
@@ -72,5 +72,12 @@ public class Cards {
 
     public void setName(String name) {
         this.name = name;
+    }
+    public String getMoreImageUr() {
+        return moreImageUr;
+    }
+
+    public void setMoreImageUr(String moreImageUr) {
+        this.moreImageUr = moreImageUr;
     }
 }

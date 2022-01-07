@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -19,6 +20,7 @@ import java.util.List;
 
 public class PhotoAdapter extends ArrayAdapter<Cards> {
     Context mContext;
+    private ImageView imageView;
 
 
     public PhotoAdapter(@NonNull Context context, int resource, @NonNull List<Cards> objects) {
@@ -34,10 +36,12 @@ public class PhotoAdapter extends ArrayAdapter<Cards> {
         }
 
         TextView name = convertView.findViewById(R.id.name);
-        ImageView image = convertView.findViewById(R.id.image);
+        //ánh xạ hình ảnh
+        imageView = convertView.findViewById(R.id.image);
+        //chi tiết
         ImageButton btnInfo = convertView.findViewById(R.id.checkInfoBeforeMatched);
-
         name.setText(card_item.getName() + ", " + card_item.getAge());
+        //detail cards
         btnInfo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -47,24 +51,23 @@ public class PhotoAdapter extends ArrayAdapter<Cards> {
                 intent.putExtra("bio", card_item.getBio());
                 intent.putExtra("interest", card_item.getInterest());
                 intent.putExtra("distance", card_item.getDistance());
+                intent.putExtra("moreimage", card_item.getMoreImageUr());
                 mContext.startActivity(intent);
             }
         });
-
-        name.setText(card_item.getName() + ", " + card_item.getAge());
-
         switch (card_item.getProfileImageUr()) {
             case "defaultFemale":
-                Glide.with(getContext()).load(R.drawable.default_woman).into(image);
+                Glide.with(getContext()).load(R.drawable.default_woman).into(imageView);
                 break;
             case "defaultMale":
-                Glide.with(getContext()).load(R.drawable.default_man).into(image);
+                Glide.with(getContext()).load(R.drawable.default_man).into(imageView);
                 break;
             default:
-                Glide.with(getContext()).load(card_item.getProfileImageUr()).into(image);
+                Glide.with(getContext()).load(card_item.getProfileImageUr()).into(imageView);
                 break;
         }
 
         return convertView;
     }
+
 }
