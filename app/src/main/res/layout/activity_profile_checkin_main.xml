@@ -30,7 +30,7 @@
                 android:layout_height="400dp">
 
 
-                <com.quintus.labs.datingapp.Utils.SquareImageView
+                <com.clmca.labs.datingapp.Utils.SquareImageView
                     android:id="@+id/profileImage"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"

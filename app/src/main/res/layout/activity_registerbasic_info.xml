@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <com.quintus.labs.datingapp.customfonts.TextViewSemiBold
+    <com.clmca.labs.datingapp.customfonts.TextViewSemiBold
         android:id="@+id/numberOfPagesLeft"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -62,7 +62,7 @@
                     android:layout_marginBottom="5dp"
                     android:gravity="bottom">
 
-                    <com.quintus.labs.datingapp.customfonts.EditTextRegular
+                    <com.clmca.labs.datingapp.customfonts.EditTextRegular
                         android:id="@+id/input_email"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -79,7 +79,7 @@
                     android:layout_marginBottom="5dp"
                     android:gravity="bottom">
 
-                    <com.quintus.labs.datingapp.customfonts.EditTextRegular
+                    <com.clmca.labs.datingapp.customfonts.EditTextRegular
                         android:id="@+id/input_username"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -97,7 +97,7 @@
                     android:gravity="bottom"
                     app:passwordToggleEnabled="true">
 
-                    <com.quintus.labs.datingapp.customfonts.EditTextRegular
+                    <com.clmca.labs.datingapp.customfonts.EditTextRegular
                         android:id="@+id/input_password"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -107,7 +107,7 @@
                         android:padding="15dp" />
                 </com.google.android.material.textfield.TextInputLayout>
 
-                <com.quintus.labs.datingapp.customfonts.ButtonSemiBold
+                <com.clmca.labs.datingapp.customfonts.ButtonSemiBold
                     android:id="@+id/btn_register"
                     android:layout_width="200dp"
                     android:layout_height="wrap_content"
@@ -123,7 +123,7 @@
 
             </LinearLayout>
 
-            <com.quintus.labs.datingapp.customfonts.TextViewBold
+            <com.clmca.labs.datingapp.customfonts.TextViewBold
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentBottom="true"

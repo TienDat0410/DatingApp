@@ -22,7 +22,7 @@
         android:required="false" />
 
     <application
-        android:name=".service.sharedprefs.App"
+        android:name="com.clmca.labs.datingapp.service.sharedprefs.App"
         android:usesCleartextTraffic="true"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -31,13 +31,13 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".SplashScreenActivity"
+            android:name="com.clmca.labs.datingapp.SplashScreenActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="@string/title_activity_splash_screen"
             android:theme="@style/AppTheme.NoActionBar">
 
         </activity>
-        <activity android:name=".Login.Login">
+        <activity android:name="com.clmca.labs.datingapp.Login.Login">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -45,15 +45,15 @@
             </intent-filter>
 
         </activity>
-        <activity android:name=".Matched.Matched_Activity" />
-        <activity android:name=".Profile.Profile_Activity" />
-        <activity android:name=".Main.ProfileCheckinMain" />
-        <activity android:name=".Matched.ProfileCheckinMatched" />
-        <activity android:name=".Profile.EditProfileActivity" />
-        <activity android:name=".Main.MainActivity" />
-        <activity android:name=".Profile.SettingsActivity" />
-        <activity android:name=".Main.BtnLikeActivity" />
-        <activity android:name=".Main.BtnDislikeActivity" />
+        <activity android:name="com.clmca.labs.datingapp.Matched.Matched_Activity" />
+        <activity android:name="com.clmca.labs.datingapp.Profile.Profile_Activity" />
+        <activity android:name="com.clmca.labs.datingapp.Main.ProfileCheckinMain" />
+        <activity android:name="com.clmca.labs.datingapp.Matched.ProfileCheckinMatched" />
+        <activity android:name="com.clmca.labs.datingapp.Profile.EditProfileActivity" />
+        <activity android:name="com.clmca.labs.datingapp.Main.MainActivity" />
+        <activity android:name="com.clmca.labs.datingapp.Profile.SettingsActivity" />
+        <activity android:name="com.clmca.labs.datingapp.Main.BtnLikeActivity" />
+        <activity android:name="com.clmca.labs.datingapp.Main.BtnDislikeActivity" />
     </application>
 
 </manifest>
