@@ -18,10 +18,13 @@ import com.google.android.gms.auth.api.signin.GoogleSignInResult;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.SignInButton;
 import com.google.android.gms.common.api.GoogleApiClient;
+import com.google.android.gms.common.api.Scope;
 import com.quintus.labs.datingapp.Main.MainActivity;
 import com.quintus.labs.datingapp.R;
 import com.quintus.labs.datingapp.service.api.ApiService;
 import com.quintus.labs.datingapp.service.sharedprefs.SharedPrefs;
+
+import java.util.Set;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -45,15 +48,26 @@ public class Login extends AppCompatActivity implements GoogleApiClient.OnConnec
         setContentView(R.layout.activity_login);
         //Yêu cầu cung cáp thông tin email....
         String idTokenRequest = "1096280217531-liqq0djthhopsvgaom7cg6am19gk4gch.apps.googleusercontent.com";
+
+        Scope scope = new Scope("https://www.googleapis.com/auth/plus.login");
+        Scope scope2 = new Scope("https://www.googleapis.com/auth/user.birthday.read");
+
+
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestIdToken(idTokenRequest)
                 .requestEmail()
+                .requestProfile()
+                .requestScopes(scope, scope2)
                 .build();
+
+
+
         // kết nối với google API client
         mGoogleSignInClient = new GoogleApiClient.Builder(this)
                 .enableAutoManage(this, this)
                 .addApi(Auth.GOOGLE_SIGN_IN_API, gso)
                 .build();
+
         //ánh xạ
         // Set the dimensions of the sign-in button.
         SignInButton signInButton = findViewById(R.id.sign_in_button);
@@ -91,6 +105,7 @@ public class Login extends AppCompatActivity implements GoogleApiClient.OnConnec
             GoogleSignInAccount account = result.getSignInAccount();
 
             String idToken = account.getIdToken();
+
 
             GoogleAuthenticationRequest request = GoogleAuthenticationRequest.builder()
                     .idToken(idToken)

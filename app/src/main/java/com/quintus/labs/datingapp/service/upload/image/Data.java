@@ -2,35 +2,36 @@ package com.quintus.labs.datingapp.service.upload.image;
 
 import java.util.List;
 
+@lombok.Data
 public class Data{
-    public String id;
-    public String deletehash;
-    public Object account_id;
-    public Object account_url;
-    public Object ad_type;
-    public Object ad_url;
-    public Object title;
-    public Object description;
-    public String name;
-    public String type;
-    public int width;
-    public int height;
-    public int size;
-    public int views;
-    public Object section;
-    public Object vote;
-    public int bandwidth;
-    public boolean animated;
-    public boolean favorite;
-    public boolean in_gallery;
-    public boolean in_most_viral;
-    public boolean has_sound;
-    public boolean is_ad;
-    public Object nsfw;
-    public String link;
-    public List<Object> tags;
-    public int datetime;
-    public String mp4;
-    public String hls;
+    private String id;
+    private String deletehash;
+    private Object account_id;
+    private Object account_url;
+    private Object ad_type;
+    private Object ad_url;
+    private Object title;
+    private Object description;
+    private String name;
+    private String type;
+    private int width;
+    private int height;
+    private int size;
+    private int views;
+    private Object section;
+    private Object vote;
+    private int bandwidth;
+    private boolean animated;
+    private boolean favorite;
+    private boolean in_gallery;
+    private boolean in_most_viral;
+    private boolean has_sound;
+    private boolean is_ad;
+    private Object nsfw;
+    private String link;
+    private List<Object> tags;
+    private int datetime;
+    private String mp4;
+    private String hls;
 }
 

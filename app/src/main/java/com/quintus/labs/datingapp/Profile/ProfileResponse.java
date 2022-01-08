@@ -8,16 +8,12 @@ import lombok.Data;
 @Data
 @Builder
 public class ProfileResponse {
-    private List<String> images;
+    private List<String> pictures;
     private String about;
     private String jobDescription;
     private String company;
     private String school;
     private Gender gender;
-
-
-    public enum Gender{
-        MALE, FEMALE
-    }
+    private List<Passion> passions;
 
 }

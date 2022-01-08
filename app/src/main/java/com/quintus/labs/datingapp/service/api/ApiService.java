@@ -9,7 +9,7 @@ import com.quintus.labs.datingapp.Login.GoogleAuthenticationRequest;
 import com.quintus.labs.datingapp.Profile.ProfileResponse;
 import com.quintus.labs.datingapp.Profile.SaveProfileRequest;
 import com.quintus.labs.datingapp.service.sharedprefs.SharedPrefs;
-import com.quintus.labs.datingapp.service.UploadFileResponse;
+import com.quintus.labs.datingapp.service.upload.image.UploadFileResponse;
 
 import java.io.IOException;
 
@@ -23,6 +23,7 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 import retrofit2.http.Body;
 import retrofit2.http.GET;
+import retrofit2.http.Headers;
 import retrofit2.http.Multipart;
 import retrofit2.http.POST;
 import retrofit2.http.Part;
@@ -47,7 +48,7 @@ public interface ApiService {
 
     ApiService apiService = new Retrofit.Builder()
             .client(client)
-            .baseUrl("http://192.168.1.5:8081/")
+            .baseUrl("http://192.168.1.4:8081/")
             .addConverterFactory(GsonConverterFactory.create(gson))
             .build()
             .create(ApiService.class);
