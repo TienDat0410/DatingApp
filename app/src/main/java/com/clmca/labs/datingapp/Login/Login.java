@@ -3,6 +3,7 @@ package com.clmca.labs.datingapp.Login;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -106,7 +107,7 @@ public class Login extends AppCompatActivity implements GoogleApiClient.OnConnec
 
 
         } else {
-            //Toast.makeText(Login.this, "Login false", Toast.LENGTH_SHORT).show();// login vô được mà chạy vào đây
+            Toast.makeText(Login.this, "Login false", Toast.LENGTH_SHORT).show();// login vô được mà chạy vào đây
         }
     }
 

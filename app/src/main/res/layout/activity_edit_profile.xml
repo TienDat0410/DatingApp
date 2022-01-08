@@ -359,7 +359,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:padding="5dp"
-                        android:text="Công ty"
+                        android:text="Tuổi"
                         android:textSize="18dp"
                         android:textStyle="bold" />
 
@@ -368,7 +368,7 @@
                         android:layout_height="wrap_content"
                         android:background="@android:color/transparent"
                         android:gravity="bottom"
-                        android:hint="Thêm công ty"
+                        android:hint="Thêm tuổi"
                         android:padding="@dimen/_5dp" />
 
                     <View
