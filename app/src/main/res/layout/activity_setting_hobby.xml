@@ -231,7 +231,7 @@
             android:layout_marginRight="24dp"
             android:background="@drawable/bt_button"
             android:elevation="25dp"
-            android:onClick="selecthobby"
+
             android:text="Chọn"
             android:textColor="@android:color/white"
             android:textStyle="bold"/>

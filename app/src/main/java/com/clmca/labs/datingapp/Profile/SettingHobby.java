@@ -137,11 +137,12 @@ public class SettingHobby extends AppCompatActivity {
         if (sportsSelectionButton.getAlpha() == 1.0f) {
             sportsSelectionButton.setAlpha(.5f);
             sportsSelectionButton.setBackgroundColor(Color.GRAY);
-            userInfo.setSports(false);
+            Intent i = new Intent(SettingHobby.this, EditProfileActivity.class);
+            i.putExtra("hobby1", "Sport");
+//            startActivity(i);
         } else {
             sportsSelectionButton.setBackgroundColor(Color.parseColor("#FF4081"));
             sportsSelectionButton.setAlpha(1.0f);
-            userInfo.setSports(true);
         }
     }
 
@@ -149,11 +150,14 @@ public class SettingHobby extends AppCompatActivity {
         if (travelSelectionButton.getAlpha() == 1.0f) {
             travelSelectionButton.setAlpha(.5f);
             travelSelectionButton.setBackgroundColor(Color.GRAY);
-            userInfo.setTravel(false);
+            Intent i = new Intent(SettingHobby.this, EditProfileActivity.class);
+            i.putExtra("hobby2", "Travel");
+//            startActivity(i);
+
         } else {
             travelSelectionButton.setBackgroundColor(Color.parseColor("#FF4081"));
             travelSelectionButton.setAlpha(1.0f);
-            userInfo.setTravel(true);
+
 
         }
 
@@ -163,11 +167,13 @@ public class SettingHobby extends AppCompatActivity {
         if (musicSelectionButton.getAlpha() == 1.0f) {
             musicSelectionButton.setAlpha(.5f);
             musicSelectionButton.setBackgroundColor(Color.GRAY);
-            userInfo.setMusic(false);
+            Intent i = new Intent(SettingHobby.this, EditProfileActivity.class);
+            i.putExtra("hobby3", "Music");
+//            startActivity(i);
         } else {
             musicSelectionButton.setBackgroundColor(Color.parseColor("#FF4081"));
             musicSelectionButton.setAlpha(1.0f);
-            userInfo.setMusic(true);
+
 
         }
 
@@ -177,11 +183,13 @@ public class SettingHobby extends AppCompatActivity {
         if (fishingSelectionButton.getAlpha() == 1.0f) {
             fishingSelectionButton.setAlpha(.5f);
             fishingSelectionButton.setBackgroundColor(Color.GRAY);
-            userInfo.setFishing(false);
+            Intent i = new Intent(SettingHobby.this, EditProfileActivity.class);
+            i.putExtra("hobby4", "Fishing");
+
         } else {
             fishingSelectionButton.setBackgroundColor(Color.parseColor("#FF4081"));
             fishingSelectionButton.setAlpha(1.0f);
-            userInfo.setFishing(true);
+
 
         }
 
@@ -191,11 +199,11 @@ public class SettingHobby extends AppCompatActivity {
         if (motorcyclesSelectionButton.getAlpha() == 1.0f) {
             motorcyclesSelectionButton.setAlpha(.5f);
             motorcyclesSelectionButton.setBackgroundColor(Color.GRAY);
-            userInfo.setFishing(false);
+
         } else {
             motorcyclesSelectionButton.setBackgroundColor(Color.parseColor("#FF4081"));
             motorcyclesSelectionButton.setAlpha(1.0f);
-            userInfo.setFishing(true);
+
 
         }
 
@@ -204,11 +212,11 @@ public class SettingHobby extends AppCompatActivity {
         if (libraSelectionButton.getAlpha() == 1.0f) {
             libraSelectionButton.setAlpha(.5f);
             libraSelectionButton.setBackgroundColor(Color.GRAY);
-            userInfo.setFishing(false);
+
         } else {
             libraSelectionButton.setBackgroundColor(Color.parseColor("#FF4081"));
             libraSelectionButton.setAlpha(1.0f);
-            userInfo.setFishing(true);
+
 
         }
     }
@@ -217,11 +225,11 @@ public class SettingHobby extends AppCompatActivity {
         if (coffeeSelectionButton.getAlpha() == 1.0f) {
             coffeeSelectionButton.setAlpha(.5f);
             coffeeSelectionButton.setBackgroundColor(Color.GRAY);
-            userInfo.setFishing(false);
+
         } else {
             coffeeSelectionButton.setBackgroundColor(Color.parseColor("#FF4081"));
             coffeeSelectionButton.setAlpha(1.0f);
-            userInfo.setFishing(true);
+
 
         }
     }
@@ -231,11 +239,11 @@ public class SettingHobby extends AppCompatActivity {
         if (karaokeSelectionButton.getAlpha() == 1.0f) {
             karaokeSelectionButton.setAlpha(.5f);
             karaokeSelectionButton.setBackgroundColor(Color.GRAY);
-            userInfo.setFishing(false);
+
         } else {
             karaokeSelectionButton.setBackgroundColor(Color.parseColor("#FF4081"));
             karaokeSelectionButton.setAlpha(1.0f);
-            userInfo.setFishing(true);
+
 
         }
     }
@@ -244,11 +252,11 @@ public class SettingHobby extends AppCompatActivity {
         if (streetfoodSelectionButton.getAlpha() == 1.0f) {
             streetfoodSelectionButton.setAlpha(.5f);
             streetfoodSelectionButton.setBackgroundColor(Color.GRAY);
-            userInfo.setFishing(false);
+
         } else {
             streetfoodSelectionButton.setBackgroundColor(Color.parseColor("#FF4081"));
             streetfoodSelectionButton.setAlpha(1.0f);
-            userInfo.setFishing(true);
+
 
         }
     }
@@ -257,11 +265,11 @@ public class SettingHobby extends AppCompatActivity {
         if (sushiSelectionButton.getAlpha() == 1.0f) {
             sushiSelectionButton.setAlpha(.5f);
             sushiSelectionButton.setBackgroundColor(Color.GRAY);
-            userInfo.setFishing(false);
+
         } else {
             sushiSelectionButton.setBackgroundColor(Color.parseColor("#FF4081"));
             sushiSelectionButton.setAlpha(1.0f);
-            userInfo.setFishing(true);
+
 
         }
     }
@@ -271,7 +279,17 @@ public class SettingHobby extends AppCompatActivity {
         hobbiesContinueButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getApplicationContext(), EditProfileActivity.class));
+                if (sportsSelectionButton.getAlpha() != 1.0f) {
+                    Intent i = new Intent(SettingHobby.this, EditProfileActivity.class);
+                    i.putExtra("hobby1", "Sport");
+                    startActivity(i);
+                }
+                if (travelSelectionButton.getAlpha() != 1.0f) {
+                    Intent i = new Intent(SettingHobby.this, EditProfileActivity.class);
+                    i.putExtra("hobby2", "Travel");
+                    startActivity(i);
+                }
+//                startActivity(new Intent(getApplicationContext(), EditProfileActivity.class));
                 finish();
 
             }

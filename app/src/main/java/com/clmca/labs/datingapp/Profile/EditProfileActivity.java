@@ -47,6 +47,9 @@ public class EditProfileActivity extends AppCompatActivity {
     private static final int PERMISSION_CALLBACK_CONSTANT = 100;
     //
     private static final int REQUEST_PERMISSION_SETTING = 101;
+    //tvHobby
+    TextView tvHobby1, tvHobby2, tvHobby3, tvHobby4, tvHobby5, tvHobby6,
+            tvHobby7, tvHobby8, tvHobby9, tvHobby10;
     Button man, woman;
     ImageButton back;
     TextView man_text, women_text;
@@ -177,14 +180,34 @@ public class EditProfileActivity extends AppCompatActivity {
             }
         });
         //thêm hobby
+        tvHobby1 = (TextView)findViewById(R.id.tvHobby1);
+        tvHobby2 = (TextView)findViewById(R.id.tvHobby2);
+        tvHobby3 = (TextView)findViewById(R.id.tvHobby3);
+        tvHobby4 = (TextView)findViewById(R.id.tvHobby4);
+        tvHobby5 = (TextView)findViewById(R.id.tvHobby5);
+        tvHobby6 = (TextView)findViewById(R.id.tvHobby6);
+        tvHobby7 = (TextView)findViewById(R.id.tvHobby7);
+        tvHobby8 = (TextView)findViewById(R.id.tvHobby8);
+        tvHobby9 = (TextView)findViewById(R.id.tvHobby9);
+        tvHobby10 = (TextView)findViewById(R.id.tvHobby10);
+        //
         btnaddHobby = (Button) findViewById(R.id.addHobby);
         btnaddHobby.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(EditProfileActivity.this, SettingHobby.class);
                 startActivity(intent);
+
             }
         });
+        Intent intent = getIntent();
+        String Hobby1 = intent.getStringExtra("hobby1");
+        String Hobby2 = intent.getStringExtra("hobby2");
+        String Hobby3 = intent.getStringExtra("hobby3");
+        tvHobby1.setText(Hobby1);
+        tvHobby2.setText(Hobby2);
+        tvHobby3.setText(Hobby3);
+
 
 
     }
