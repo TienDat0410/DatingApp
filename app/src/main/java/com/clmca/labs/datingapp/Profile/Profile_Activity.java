@@ -49,7 +49,7 @@ public class Profile_Activity extends AppCompatActivity {
         imagePerson = findViewById(R.id.circle_profile_image);
         name = findViewById(R.id.profile_name);
 
-
+        //edit profile
         ImageButton edit_btn = findViewById(R.id.edit_profile);
         edit_btn.setOnClickListener(new View.OnClickListener() {
             @Override

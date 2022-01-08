@@ -45,7 +45,7 @@ import java.io.IOException;
 public class EditProfileActivity extends AppCompatActivity {
     private static final String TAG = "EditProfileActivity";
     private static final int PERMISSION_CALLBACK_CONSTANT = 100;
-    //firebase
+    //
     private static final int REQUEST_PERMISSION_SETTING = 101;
     Button man, woman;
     ImageButton back;
@@ -62,7 +62,9 @@ public class EditProfileActivity extends AppCompatActivity {
     private Uri resultUri;
     private String userSex;
     private EditText phoneNumber, aboutMe;
-    private CheckBox sportsCheckBox, travelCheckBox, musicCheckBox, fishingCheckBox;
+    //
+    private CheckBox sportsCheckBox, travelCheckBox, musicCheckBox, fishingCheckBox, motorcyclesCheckbox, libraCheckBox, coffeeCheckBox,
+            karaokeCheckBox, streetfoodCheckBox, sushiCheckBox;
     private boolean isSportsClicked = false;
     private boolean isTravelClicked = false;
     private boolean isFishingClicked = false;
@@ -72,6 +74,8 @@ public class EditProfileActivity extends AppCompatActivity {
     private boolean sentToSettings = false;
     private int REQUEST_CAMERA = 0, SELECT_FILE = 1;
     private String userChoosenTask;
+    //
+    private Button btnaddHobby;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -170,6 +174,15 @@ public class EditProfileActivity extends AppCompatActivity {
                 imageView = imageView6;
                 proceedAfterPermission();
 
+            }
+        });
+        //thêm hobby
+        btnaddHobby = (Button) findViewById(R.id.addHobby);
+        btnaddHobby.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(EditProfileActivity.this, SettingHobby.class);
+                startActivity(intent);
             }
         });
 

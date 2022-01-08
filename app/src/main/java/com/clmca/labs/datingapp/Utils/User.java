@@ -9,54 +9,49 @@ public class User implements Serializable {
     private String phone_number;
     private String email;
     private String username;
+    //hobby
     private boolean sports;
     private boolean travel;
     private boolean music;
     private boolean fishing;
+    private boolean motorcycles;
+    private boolean libra;
+    private boolean coffee;
+    private boolean karaoke;
+    private boolean streetfood;
+    private boolean sushi;
+    //
     private String description;
     private String sex;
     private String preferSex;
     private String dateOfBirth;
     private String profileImageUrl;
-    private double latitude;
-    private double longtitude;
-
-
     public User() {
     }
 
-    public User(String sex, String preferSex, String user_id, String phone_number, String email, String username, boolean sport, boolean travel, boolean music, boolean fish, String description, String dateOfBirth, String profileImageUrl, double latitude, double longtitude) {
+    public User(String sex, String preferSex, String user_id, String phone_number, String email, String username, boolean sport, boolean travel, boolean music, boolean fish, boolean motorcycles, boolean libra,
+                 boolean coffee, boolean karaoke, boolean streetfood, boolean sushi,String description, String dateOfBirth, String profileImageUrl) {
         this.sex = sex;
         this.user_id = user_id;
         this.phone_number = phone_number;
         this.email = email;
         this.username = username;
+        //hobby
         this.sports = sport;
         this.travel = travel;
         this.music = music;
         this.fishing = fish;
+        this.motorcycles = motorcycles;
+        this.libra = libra;
+        this.coffee = coffee;
+        this.karaoke = karaoke;
+        this.streetfood = streetfood;
+        this.sushi = sushi;
+        //
         this.description = description;
         this.preferSex = preferSex;
         this.dateOfBirth = dateOfBirth;
         this.profileImageUrl = profileImageUrl;
-        this.latitude = latitude;
-        this.longtitude = longtitude;
-    }
-
-    public double getLatitude() {
-        return latitude;
-    }
-
-    public void setLatitude(double latitude) {
-        this.latitude = latitude;
-    }
-
-    public double getLongtitude() {
-        return longtitude;
-    }
-
-    public void setLongtitude(double longtitude) {
-        this.longtitude = longtitude;
     }
 
     public String getProfileImageUrl() {
@@ -145,6 +140,53 @@ public class User implements Serializable {
 
     public void setFishing(boolean fishing) {
         this.fishing = fishing;
+    }
+    public boolean isMotorcycles() {
+        return motorcycles;
+    }
+
+    public void setMotorcycles(boolean motorcycles) {
+        this.motorcycles = motorcycles;
+    }
+
+    public boolean isLibra() {
+        return libra;
+    }
+
+    public void setLibra(boolean libra) {
+        this.libra = libra;
+    }
+
+    public boolean isCoffee() {
+        return coffee;
+    }
+
+    public void setCoffee(boolean coffee) {
+        this.coffee = coffee;
+    }
+
+    public boolean isKaraoke() {
+        return karaoke;
+    }
+
+    public void setKaraoke(boolean karaoke) {
+        this.karaoke = karaoke;
+    }
+
+    public boolean isStreetfood() {
+        return streetfood;
+    }
+
+    public void setStreetfood(boolean streetfood) {
+        this.streetfood = streetfood;
+    }
+
+    public boolean isSushi() {
+        return sushi;
+    }
+
+    public void setSushi(boolean sushi) {
+        this.sushi = sushi;
     }
 
     public String getPreferSex() {
