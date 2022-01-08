@@ -1,6 +1,6 @@
 package com.clmca.labs.datingapp;
 
-import androidx.appcompat.app.AppCompatActivity;
+import static com.clmca.labs.datingapp.Utils.TransparentStatusBar.setWindowFlag;
 
 import android.content.Intent;
 import android.graphics.Color;
@@ -12,17 +12,17 @@ import android.view.animation.Animation;
 import android.view.animation.ScaleAnimation;
 import android.widget.ImageView;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.clmca.labs.datingapp.Login.Login;
-import com.clmca.labs.datingapp.Main.MainActivity;
 
 import java.util.Timer;
 import java.util.TimerTask;
 
-import static com.clmca.labs.datingapp.Utils.TransparentStatusBar.setWindowFlag;
-
 
 public class SplashScreenActivity extends AppCompatActivity {
     ImageView imageView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,7 +35,7 @@ public class SplashScreenActivity extends AppCompatActivity {
         }
         setContentView(R.layout.activity_splash_screen);
 
-        ScaleAnimation fade_in =  new ScaleAnimation(0f, 1f, 0f, 1f, Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF, 0.5f);
+        ScaleAnimation fade_in = new ScaleAnimation(0f, 1f, 0f, 1f, Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF, 0.5f);
         fade_in.setDuration(3000);
         fade_in.setFillAfter(true);
         findViewById(R.id.imageView).startAnimation(fade_in);

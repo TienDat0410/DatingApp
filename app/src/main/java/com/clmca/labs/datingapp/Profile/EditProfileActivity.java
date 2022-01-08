@@ -9,31 +9,49 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
+import android.location.Location;
+import android.location.LocationListener;
+import android.location.LocationManager;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
 import android.provider.Settings;
-import androidx.core.app.ActivityCompat;
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
-import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
-import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+
 import com.clmca.labs.datingapp.R;
+import com.clmca.labs.datingapp.service.api.ApiService;
+import com.clmca.labs.datingapp.service.upload.image.UploadFileResponse;
+import com.squareup.picasso.Picasso;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+
+import okhttp3.MediaType;
+import okhttp3.MultipartBody;
+import okhttp3.RequestBody;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 /**
  * DatingApp
@@ -42,7 +60,7 @@ import java.io.IOException;
  * Created by : Santosh Kumar Dash:- http://santoshdash.epizy.com
  */
 
-public class EditProfileActivity extends AppCompatActivity {
+public class EditProfileActivity extends AppCompatActivity implements LocationListener {
     private static final String TAG = "EditProfileActivity";
     private static final int PERMISSION_CALLBACK_CONSTANT = 100;
     //firebase
@@ -51,32 +69,34 @@ public class EditProfileActivity extends AppCompatActivity {
     ImageButton back;
     TextView man_text, women_text;
     ImageView imageView1, imageView2, imageView3, imageView4, imageView5, imageView6, imageView;
-    Bitmap myBitmap;
-    Uri picUri;
+    List<String> imageUrls;
+    int imageIndex;
     String[] permissionsRequired = new String[]{Manifest.permission.CAMERA,
             Manifest.permission.READ_EXTERNAL_STORAGE,
             Manifest.permission.WRITE_EXTERNAL_STORAGE};
-    private Context mContext = EditProfileActivity.this;
-    private ImageView mProfileImage;
-    private String userId, profileImageUri;
-    private Uri resultUri;
-    private String userSex;
-    private EditText phoneNumber, aboutMe;
-    private CheckBox sportsCheckBox, travelCheckBox, musicCheckBox, fishingCheckBox;
-    private boolean isSportsClicked = false;
-    private boolean isTravelClicked = false;
-    private boolean isFishingClicked = false;
-    private boolean isMusicClicked = false;
-    private RadioGroup userSexSelection;
+
+    private EditText txtAboutme;
+
     private SharedPreferences permissionStatus;
     private boolean sentToSettings = false;
     private int REQUEST_CAMERA = 0, SELECT_FILE = 1;
-    private String userChoosenTask;
+
+    private EditText txtJob, txtCompany, txtSchool;
+
+    private List<Passion> passions;
+    private Gender gender;
+
+    protected Double latitude, longitude;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_profile);
+
+        imageUrls = new ArrayList<>();
+        passions = new ArrayList<>();
+        gender = Gender.MALE;
 
         permissionStatus = getSharedPreferences("permissionStatus", MODE_PRIVATE);
         requestMultiplePermissions();
@@ -86,11 +106,59 @@ public class EditProfileActivity extends AppCompatActivity {
         imageView4 = findViewById(R.id.image_view_4);
         imageView5 = findViewById(R.id.image_view_5);
         imageView6 = findViewById(R.id.image_view_6);
+
+
         man = findViewById(R.id.man_button);
         woman = findViewById(R.id.woman_button);
         man_text = findViewById(R.id.man_text);
         women_text = findViewById(R.id.woman_text);
         back = findViewById(R.id.back);
+
+        // set text to edit text
+
+
+        txtJob = findViewById(R.id.txtJobDescription);
+        txtCompany = findViewById(R.id.txtCompany);
+        txtSchool = findViewById(R.id.txtSchool);
+        txtAboutme = findViewById(R.id.txtAbout);
+
+        // location
+         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            Intent intent = new Intent(Settings.ACTION_LOCALE_SETTINGS);
+            startActivity(intent);
+            Intent intent2 = new Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS);
+            startActivity(intent2);
+
+        }
+
+        LocationManager locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
+        locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, this);
+
+
+
+        ApiService.apiService.getProfile().enqueue(new Callback<ProfileResponse>() {
+
+            @Override
+            public void onResponse(Call<ProfileResponse> call, Response<ProfileResponse> response) {
+                ProfileResponse body = response.body();
+                txtJob.setText(body.getJobDescription());
+                txtCompany.setText(body.getCompany());
+                txtSchool.setText(body.getSchool());
+                txtAboutme.setText(body.getAbout());
+                imageUrls = body.getPictures();
+                passions = body.getPassions();
+                gender = body.getGender();
+                updateListImage(imageUrls);
+            }
+
+            @Override
+            public void onFailure(Call<ProfileResponse> call, Throwable t) {
+                Toast.makeText(EditProfileActivity.this, "Error:" + t.getMessage(), Toast.LENGTH_SHORT).show();
+                finish();
+            }
+        });
+
+
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -124,6 +192,7 @@ public class EditProfileActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 imageView = imageView1;
+                imageIndex = 0;
                 proceedAfterPermission();
 
             }
@@ -132,6 +201,7 @@ public class EditProfileActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 imageView = imageView2;
+                imageIndex = 1;
                 proceedAfterPermission();
 
             }
@@ -141,6 +211,7 @@ public class EditProfileActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 imageView = imageView3;
+                imageIndex = 2;
                 proceedAfterPermission();
 
             }
@@ -150,6 +221,7 @@ public class EditProfileActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 imageView = imageView4;
+                imageIndex = 3;
                 proceedAfterPermission();
 
             }
@@ -159,6 +231,7 @@ public class EditProfileActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 imageView = imageView5;
+                imageIndex = 4;
                 proceedAfterPermission();
 
             }
@@ -168,11 +241,29 @@ public class EditProfileActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 imageView = imageView6;
+                imageIndex = 5;
                 proceedAfterPermission();
 
             }
         });
 
+
+    }
+
+    private void updateListImage(List<String> urls) {
+        List<ImageView> imvList = new ArrayList<>();
+        imvList.add(imageView1);
+        imvList.add(imageView2);
+        imvList.add(imageView3);
+        imvList.add(imageView4);
+        imvList.add(imageView5);
+        imvList.add(imageView6);
+
+        for (int i = 0; i < urls.size(); i++) {
+            ImageView imageView = imvList.get(i);
+            String s = urls.get(i);
+            Picasso.get().load(s).into(imageView);
+        }
 
     }
 
@@ -259,15 +350,11 @@ public class EditProfileActivity extends AppCompatActivity {
 
             public void onClick(DialogInterface dialog, int item) {
 
-                if (options[item].equals("Take Photo"))
-
-                {
+                if (options[item].equals("Take Photo")) {
 
                     cameraIntent();
 
-                } else if (options[item].equals("Choose from Gallery"))
-
-                {
+                } else if (options[item].equals("Choose from Gallery")) {
 
                     galleryIntent();
 
@@ -290,7 +377,7 @@ public class EditProfileActivity extends AppCompatActivity {
     private void galleryIntent() {
         Intent intent = new Intent();
         intent.setType("image/*");
-        intent.setAction(Intent.ACTION_GET_CONTENT);//
+        intent.setAction(Intent.ACTION_GET_CONTENT);
         startActivityForResult(Intent.createChooser(intent, "Select File"), SELECT_FILE);
     }
 
@@ -299,6 +386,7 @@ public class EditProfileActivity extends AppCompatActivity {
         startActivityForResult(intent, REQUEST_CAMERA);
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.R)
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -316,10 +404,28 @@ public class EditProfileActivity extends AppCompatActivity {
         }
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.R)
     private void onCaptureImageResult(Intent data) {
-        Bitmap thumbnail = (Bitmap) data.getExtras().get("data");
+        if (requireFileAccessPermision()) return;
+        Bitmap bm = (Bitmap) data.getExtras().get("data");
+        File file = convertToFile(bm);
+        uploadFile(file);
+
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.R)
+    private void uploadImageFromBitmap(Bitmap bm) {
+        if (requireFileAccessPermision()) return;
+
+        File file = convertToFile(bm);
+        uploadFile(file);
+
+    }
+
+    @Nullable
+    private File convertToFile(@NonNull Bitmap thumbnail) {
         ByteArrayOutputStream bytes = new ByteArrayOutputStream();
-        thumbnail.compress(Bitmap.CompressFormat.JPEG, 90, bytes);
+        thumbnail.compress(Bitmap.CompressFormat.JPEG, 100, bytes);
 
         File destination = new File(Environment.getExternalStorageDirectory(),
                 System.currentTimeMillis() + ".jpg");
@@ -330,15 +436,62 @@ public class EditProfileActivity extends AppCompatActivity {
             fo = new FileOutputStream(destination);
             fo.write(bytes.toByteArray());
             fo.close();
+            return destination;
+
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
         }
 
-        imageView.setImageBitmap(thumbnail);
+        return null;
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.R)
+    private boolean requireFileAccessPermision() {
+        if (!Environment.isExternalStorageManager()) {
+            Intent intent = new Intent(Settings.ACTION_MANAGE_ALL_FILES_ACCESS_PERMISSION);
+            startActivity(intent);
+            return true;
+        }
+        return false;
+    }
+
+    private void uploadFile(File file) {
+
+        RequestBody fbody = RequestBody.create(MediaType.parse("image/*"),
+                file);
+        MultipartBody.Part image = MultipartBody.Part.createFormData("image", file.getName(), fbody);
+
+
+        ApiService.apiService.uploadFile(image).enqueue(new Callback<UploadFileResponse>() {
+            @Override
+            public void onResponse(Call<UploadFileResponse> call, Response<UploadFileResponse> response) {
+                UploadFileResponse body = response.body();
+                if (body == null) return;
+                String link = body.getData().getLink();
+                Picasso.get().load(link).into(imageView);
+
+                if (imageIndex >= imageUrls.size()) {
+                    imageUrls.add(link);
+                } else {
+                    imageUrls.set(imageIndex, link);
+
+                }
+
+                updateListImage(imageUrls);
+
+                Toast.makeText(EditProfileActivity.this, "Success", Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onFailure(Call<UploadFileResponse> call, Throwable t) {
+                Toast.makeText(EditProfileActivity.this, "Error", Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.R)
     @SuppressWarnings("deprecation")
     private void onSelectFromGalleryResult(Intent data) {
 
@@ -346,14 +499,50 @@ public class EditProfileActivity extends AppCompatActivity {
         if (data != null) {
             try {
                 bm = MediaStore.Images.Media.getBitmap(getApplicationContext().getContentResolver(), data.getData());
+                uploadImageFromBitmap(bm);
+                Toast.makeText(EditProfileActivity.this, "Success", Toast.LENGTH_SHORT).show();
             } catch (IOException e) {
-                e.printStackTrace();
+                Toast.makeText(EditProfileActivity.this, "Error", Toast.LENGTH_SHORT).show();
             }
         }
-
-        imageView.setImageBitmap(bm);
     }
 
+
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+
+
+
+        System.out.println(longitude + ":" + latitude);
+
+        SaveProfileRequest request = SaveProfileRequest.builder()
+                .pictures(imageUrls)
+                .about(txtAboutme.getText().toString())
+                .company(txtCompany.getText().toString())
+                .school(txtSchool.getText().toString())
+                .jobDescription(txtJob.getText().toString())
+                .passions(passions)
+                .gender(gender)
+                .longitude(longitude)
+                .latitude(latitude)
+                .build();
+
+        ApiService.apiService.saveProfile(request).enqueue(new Callback<Void>() {
+            @Override
+            public void onResponse(Call<Void> call, Response<Void> response) {
+                Toast.makeText(EditProfileActivity.this, "Update profile success", Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onFailure(Call<Void> call, Throwable t) {
+                Toast.makeText(EditProfileActivity.this, "Error:" + t.getMessage(), Toast.LENGTH_SHORT).show();
+            }
+        });
+
+
+    }
 
     @Override
     protected void onPostResume() {
@@ -364,5 +553,15 @@ public class EditProfileActivity extends AppCompatActivity {
                 proceedAfterPermission();
             }
         }
+    }
+
+    @Override
+    public void onLocationChanged(@NonNull Location location) {
+        System.out.println("Latitude:" + location.getLatitude() + ", Longitude:" + location.getLongitude());
+
+        latitude = location.getLatitude();
+        longitude = location.getLongitude();
+
+
     }
 }

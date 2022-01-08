@@ -321,6 +321,7 @@
                         android:textStyle="bold" />
 
                     <EditText
+                        android:id="@+id/txtAbout"
                         android:layout_width="match_parent"
                         android:layout_height="70dp"
                         android:background="@android:color/transparent"
@@ -342,6 +343,7 @@
                         android:textStyle="bold" />
 
                     <EditText
+                        android:id="@+id/txtJobDescription"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:background="@android:color/transparent"
@@ -364,6 +366,7 @@
                         android:textStyle="bold" />
 
                     <EditText
+                        android:id="@+id/txtCompany"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:background="@android:color/transparent"
@@ -386,6 +389,7 @@
                         android:textStyle="bold" />
 
                     <EditText
+                        android:id="@+id/txtSchool"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:background="@android:color/transparent"

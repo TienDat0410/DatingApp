@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="../../../../layout/custom_preview.xml" value="0.21770833333333334" />
         <entry key="..\:/LTtrendidong/DatingApp-new/DatingApp-master/app/src/main/res/drawable-hdpi/background_main.xml" value="0.203125" />
         <entry key="..\:/LTtrendidong/DatingApp-new/DatingApp-master/app/src/main/res/drawable-hdpi/custom_switch.xml" value="0.2484375" />
         <entry key="..\:/LTtrendidong/DatingApp-new/DatingApp-master/app/src/main/res/drawable-hdpi/edittext_bg.xml" value="0.265625" />
@@ -56,7 +57,9 @@
         <entry key="..\:/LTtrendidong/DatingApp-new/DatingApp-master/app/src/main/res/menu/main.xml" value="0.2359375" />
         <entry key="..\:/LTtrendidong/DatingApp-new/DatingApp-master/app/src/main/res/menu/top_navigation_toolbar.xml" value="0.24322916666666666" />
         <entry key="..\:/LTtrendidong/DatingApp-new/DatingApp-master/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.2520833333333333" />
+        <entry key="app/src/main/res/layout/activity_edit_profile.xml" value="0.33" />
         <entry key="app/src/main/res/layout/activity_login.xml" value="0.19791666666666666" />
+        <entry key="app/src/main/res/layout/activity_profile.xml" value="0.4181523500810373" />
       </map>
     </option>
   </component>
