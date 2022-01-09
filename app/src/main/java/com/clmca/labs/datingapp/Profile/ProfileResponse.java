@@ -15,5 +15,15 @@ public class ProfileResponse {
     private String school;
     private Gender gender;
     private List<Passion> passions;
+    private Double longitude;
+    private Double latitude;
+
+
+    private int distance;
+
+    private List<Gender> genderToShow;
+    private int yearOfBirth;
+    private int minAge;
+    private int maxAge;
 
 }
