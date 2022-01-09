@@ -138,10 +138,10 @@
     <color name="light_blue_A200">#FF40C4FF</color>
     <color name="light_blue_A400">#FF00B0FF</color>
     <color name="black_overlay">#66000000</color>
-<!--new color    -->
+    <!--new color    -->
     <color name="deepblue">#00BFFF</color>
-<!--    text title tin hub-->
+    <!--    text title tin hub-->
     <color name="texttitletin_hub">#f650a0</color>
-<!--    textborder edt-->
+    <!--    textborder edt-->
     <color name="textborder_edt">#c2e9fb</color>
 </resources>

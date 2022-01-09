@@ -24,7 +24,7 @@
             android:gravity="center"
             android:orientation="vertical">
 
-            <com.clmca.labs.datingapp.Utils.PulsatorLayout
+            <com.quintus.labs.datingapp.Utils.PulsatorLayout
                 android:id="@+id/pulsator"
                 android:layout_width="180dp"
                 android:layout_height="180dp"
@@ -45,9 +45,9 @@
                     android:src="@drawable/user1"
                     app:civ_border_color="@color/transparentPink"
                     app:civ_border_width="2dp" />
-            </com.clmca.labs.datingapp.Utils.PulsatorLayout>
+            </com.quintus.labs.datingapp.Utils.PulsatorLayout>
 
-            <com.clmca.labs.datingapp.customfonts.TextViewBold
+            <com.quintus.labs.datingapp.customfonts.TextViewBold
                 android:id="@+id/profile_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -56,14 +56,13 @@
                 android:textColor="@android:color/black"
                 android:textSize="20sp" />
 
-            <com.clmca.labs.datingapp.customfonts.TextViewRegular
+            <com.quintus.labs.datingapp.customfonts.TextViewRegular
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="20dp"
-                android:textSize="14dp"
                 android:gravity="center"
-                android:text="Bông hoa đẹp nhất. "/>
-
+                android:text="Bông hoa đẹp nhất. "
+                android:textSize="14dp" />
 
 
             <LinearLayout

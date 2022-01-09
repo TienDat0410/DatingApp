@@ -5,6 +5,7 @@
     android:layout_height="match_parent"
     android:background="@drawable/bg_setting"
     android:orientation="vertical">
+
     <include layout="@layout/layout_top_navigation_back" />
 
     <ScrollView
@@ -312,7 +313,7 @@
                     android:paddingLeft="10dp"
                     android:paddingRight="10dp">
 
-                    <com.clmca.labs.datingapp.customfonts.TextViewBold
+                    <com.quintus.labs.datingapp.customfonts.TextViewBold
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:padding="5dp"
@@ -334,7 +335,7 @@
                         android:layout_marginTop="2dp"
                         android:background="@color/colorAccent" />
 
-                    <com.clmca.labs.datingapp.customfonts.TextViewBold
+                    <com.quintus.labs.datingapp.customfonts.TextViewBold
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:padding="5dp"
@@ -357,7 +358,7 @@
                         android:layout_marginTop="2dp"
                         android:background="@color/colorAccent" />
 
-                    <com.clmca.labs.datingapp.customfonts.TextViewBold
+                    <com.quintus.labs.datingapp.customfonts.TextViewBold
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:padding="5dp"
@@ -380,7 +381,7 @@
                         android:layout_marginTop="2dp"
                         android:background="@color/colorAccent" />
 
-                    <com.clmca.labs.datingapp.customfonts.TextViewBold
+                    <com.quintus.labs.datingapp.customfonts.TextViewBold
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:padding="5dp"
@@ -403,7 +404,7 @@
                         android:layout_marginTop="2dp"
                         android:background="@color/colorAccent" />
 
-                    <com.clmca.labs.datingapp.customfonts.TextViewBold
+                    <com.quintus.labs.datingapp.customfonts.TextViewBold
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:padding="5dp"
@@ -449,8 +450,8 @@
                             android:layout_centerVertical="true"
                             android:layout_margin="8dp"
                             android:text="Nữ"
-                            android:textSize="18dp"
-                            android:textColor="@color/colorAccent"/>
+                            android:textColor="@color/colorAccent"
+                            android:textSize="18dp" />
 
                         <Button
                             android:id="@+id/woman_button"
@@ -463,7 +464,7 @@
                             android:visibility="visible" />
                     </RelativeLayout>
 
-                    <com.clmca.labs.datingapp.customfonts.TextViewBold
+                    <com.quintus.labs.datingapp.customfonts.TextViewBold
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:padding="@dimen/_5dp"

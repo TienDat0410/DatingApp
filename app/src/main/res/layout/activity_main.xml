@@ -70,19 +70,7 @@
                         android:padding="10dp"
                         android:src="@drawable/ic_dislike" />
 
-                    <ImageButton
-                        android:id="@+id/commentbtn"
-                        android:layout_width="50dp"
-                        android:layout_height="50dp"
-                        android:layout_alignParentTop="true"
-                        android:layout_centerHorizontal="true"
-                        android:layout_gravity="center"
-                        android:layout_marginRight="20dp"
-                        android:background="@drawable/round_button_with_border"
-                        android:elevation="7dp"
-                        android:padding="10dp"
-                        android:src="@drawable/ic_mess"
-                        android:onClick="btnMess"/>
+
 
 
                     <ImageButton
@@ -118,7 +106,7 @@
             android:layout_height="match_parent">
 
 
-            <com.clmca.labs.datingapp.Utils.PulsatorLayout
+            <com.quintus.labs.datingapp.Utils.PulsatorLayout
                 android:id="@+id/pulsator"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -138,7 +126,7 @@
                     app:civ_border_color="@color/transparentPink"
                     app:civ_border_width="1dp" />
 
-            </com.clmca.labs.datingapp.Utils.PulsatorLayout>
+            </com.quintus.labs.datingapp.Utils.PulsatorLayout>
 
         </RelativeLayout>
     </FrameLayout>

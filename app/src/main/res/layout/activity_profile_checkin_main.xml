@@ -2,7 +2,6 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@drawable/bg_setting"
     android:fillViewport="true"
     android:fitsSystemWindows="true">
@@ -11,12 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <Button
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_alignParentRight="true"
-            android:onClick="onCloseClicked"
-            android:background="@drawable/ic_close_black_24dp" />
+
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -30,7 +24,7 @@
                 android:layout_height="400dp">
 
 
-                <com.clmca.labs.datingapp.Utils.SquareImageView
+                <com.quintus.labs.datingapp.Utils.SquareImageView
                     android:id="@+id/profileImage"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -47,7 +41,9 @@
                     android:layout_alignParentRight="true"
                     android:layout_alignParentBottom="true"
                     android:layout_marginRight="10dp"
-                    android:background="@drawable/ic_down_arrow" />
+                    android:background="@drawable/ic_down_arrow"
+                    android:onClick="onCloseClicked"
+                    />
             </RelativeLayout>
 
             <TextView
@@ -70,8 +66,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="right"
-                    android:background="@drawable/bt_button"
                     android:layout_marginBottom="5dp"
+                    android:background="@drawable/bt_button"
                     android:text="ẢNh Sau" />
 
                 <Button

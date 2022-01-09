@@ -23,7 +23,7 @@
 
     <application
 
-        android:name="com.clmca.labs.datingapp.service.sharedprefs.App"
+        android:name="com.quintus.labs.datingapp.service.sharedprefs.App"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -32,10 +32,10 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
         <activity
-            android:name=".chat.ChatActivity"
+            android:name="com.quintus.labs.datingapp.chat.ChatActivity"
             android:exported="false" />
         <activity
-            android:name="com.clmca.labs.datingapp.SplashScreenActivity"
+            android:name="com.quintus.labs.datingapp.SplashScreenActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="@string/title_activity_splash_screen"
             android:theme="@style/AppTheme.NoActionBar">
@@ -45,22 +45,22 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.clmca.labs.datingapp.Login.Login">
+        <activity android:name="com.quintus.labs.datingapp.Login.Login">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.clmca.labs.datingapp.Matched.Matched_Activity" />
-        <activity android:name="com.clmca.labs.datingapp.Profile.Profile_Activity" />
-        <activity android:name="com.clmca.labs.datingapp.Main.ProfileCheckinMain" />
-        <activity android:name="com.clmca.labs.datingapp.Matched.ProfileCheckinMatched" />
-        <activity android:name="com.clmca.labs.datingapp.Profile.EditProfileActivity" />
-        <activity android:name="com.clmca.labs.datingapp.Main.MainActivity" />
-        <activity android:name="com.clmca.labs.datingapp.Profile.SettingsActivity" />
-        <activity android:name="com.clmca.labs.datingapp.Main.BtnLikeActivity" />
-        <activity android:name="com.clmca.labs.datingapp.Main.BtnDislikeActivity" />
+        <activity android:name="com.quintus.labs.datingapp.Matched.Matched_Activity" />
+        <activity android:name="com.quintus.labs.datingapp.Profile.Profile_Activity" />
+        <activity android:name="com.quintus.labs.datingapp.Main.ProfileCheckinMain" />
+        <activity android:name="com.quintus.labs.datingapp.Matched.ProfileCheckinMatched" />
+        <activity android:name="com.quintus.labs.datingapp.Profile.EditProfileActivity" />
+        <activity android:name="com.quintus.labs.datingapp.Main.MainActivity" />
+        <activity android:name="com.quintus.labs.datingapp.Profile.SettingsActivity" />
+        <activity android:name="com.quintus.labs.datingapp.Main.BtnLikeActivity" />
+        <activity android:name="com.quintus.labs.datingapp.Main.BtnDislikeActivity" />
     </application>
 
 </manifest>

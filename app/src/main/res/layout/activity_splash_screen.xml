@@ -3,17 +3,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.clmca.labs.datingapp.SplashScreenActivity"
-    android:background="@drawable/gradient_bg">
+    android:background="@drawable/gradient_bg"
+    tools:context="com.clmca.labs.datingapp.com.quintus.labs.datingapp.SplashScreenActivity">
 
 
-          <ImageView
-              android:layout_width="match_parent"
-              android:layout_height="wrap_content"
-              android:src="@drawable/bg_logo"
-              android:layout_centerInParent="true"
-              android:id="@+id/imageView"/>
-
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:src="@drawable/bg_logo" />
 
 
 </RelativeLayout>

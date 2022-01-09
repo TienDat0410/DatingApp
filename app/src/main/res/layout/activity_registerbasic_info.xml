@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <com.clmca.labs.datingapp.customfonts.TextViewSemiBold
+    <com.quintus.labs.datingapp.customfonts.TextViewSemiBold
         android:id="@+id/numberOfPagesLeft"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -45,14 +45,14 @@
 
 
             <LinearLayout
+                android:id="@+id/register_layout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
                 android:orientation="vertical"
                 android:paddingLeft="25dp"
                 android:paddingTop="100dp"
-                android:paddingRight="25dp"
-                android:id="@+id/register_layout">
+                android:paddingRight="25dp">
 
 
                 <com.google.android.material.textfield.TextInputLayout
@@ -62,7 +62,7 @@
                     android:layout_marginBottom="5dp"
                     android:gravity="bottom">
 
-                    <com.clmca.labs.datingapp.customfonts.EditTextRegular
+                    <com.quintus.labs.datingapp.customfonts.EditTextRegular
                         android:id="@+id/input_email"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -79,7 +79,7 @@
                     android:layout_marginBottom="5dp"
                     android:gravity="bottom">
 
-                    <com.clmca.labs.datingapp.customfonts.EditTextRegular
+                    <com.quintus.labs.datingapp.customfonts.EditTextRegular
                         android:id="@+id/input_username"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -97,7 +97,7 @@
                     android:gravity="bottom"
                     app:passwordToggleEnabled="true">
 
-                    <com.clmca.labs.datingapp.customfonts.EditTextRegular
+                    <com.quintus.labs.datingapp.customfonts.EditTextRegular
                         android:id="@+id/input_password"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -107,30 +107,30 @@
                         android:padding="15dp" />
                 </com.google.android.material.textfield.TextInputLayout>
 
-                <com.clmca.labs.datingapp.customfonts.ButtonSemiBold
+                <com.quintus.labs.datingapp.customfonts.ButtonSemiBold
                     android:id="@+id/btn_register"
                     android:layout_width="200dp"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="center"
                     android:layout_marginTop="25dp"
                     android:layout_marginBottom="25dp"
                     android:background="@drawable/shape_login_button"
                     android:padding="15dp"
                     android:text="Continue"
                     android:textColor="@color/white"
-                    tools:targetApi="lollipop"
-                    android:layout_gravity="center"/>
+                    tools:targetApi="lollipop" />
 
 
             </LinearLayout>
 
-            <com.clmca.labs.datingapp.customfonts.TextViewBold
+            <com.quintus.labs.datingapp.customfonts.TextViewBold
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_below="@+id/register_layout"
                 android:layout_alignParentBottom="true"
                 android:layout_centerHorizontal="true"
                 android:onClick="onLoginClicked"
                 android:padding="15dp"
-                android:layout_below="@+id/register_layout"
 
                 android:text="existing User? Please Login" />
 
