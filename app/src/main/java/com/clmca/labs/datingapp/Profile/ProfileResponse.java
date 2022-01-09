@@ -8,6 +8,13 @@ import lombok.Data;
 @Data
 @Builder
 public class ProfileResponse {
+
+
+
+    private String username;
+    private String fullName;
+    private String avatar;
+
     private List<String> pictures;
     private String about;
     private String jobDescription;

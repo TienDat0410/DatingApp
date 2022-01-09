@@ -1,10 +1,14 @@
 package com.clmca.labs.datingapp.Main;
 
 
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 /**
  * DatingApp
  */
-
+@Data
+@NoArgsConstructor
 public class Cards {
     private String userId;
     private String name;

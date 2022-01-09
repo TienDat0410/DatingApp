@@ -2,6 +2,8 @@ package com.clmca.labs.datingapp.service.api;
 
 import android.content.SharedPreferences;
 
+import com.clmca.labs.datingapp.service.FindSuitablePersonRequest;
+import com.clmca.labs.datingapp.service.PageResponse;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.clmca.labs.datingapp.Login.AuthenticationResponse;
@@ -66,4 +68,7 @@ public interface ApiService {
     @POST("https://api.imgur.com/3/upload")
     Call<UploadFileResponse> uploadFile(
             @Part MultipartBody.Part file);
+
+    @POST("user/match")
+    Call<PageResponse<ProfileResponse>> getSuitablePartner(@Body FindSuitablePersonRequest request);
 }

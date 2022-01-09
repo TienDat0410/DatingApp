@@ -18,7 +18,11 @@ import android.widget.FrameLayout;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.clmca.labs.datingapp.Profile.ProfileResponse;
 import com.clmca.labs.datingapp.chat.ChatActivity;
+import com.clmca.labs.datingapp.service.FindSuitablePersonRequest;
+import com.clmca.labs.datingapp.service.PageResponse;
+import com.clmca.labs.datingapp.service.api.ApiService;
 import com.google.gson.Gson;
 import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx;
 import com.lorentzos.flingswipe.SwipeFlingAdapterView;
@@ -27,8 +31,12 @@ import com.clmca.labs.datingapp.Utils.PulsatorLayout;
 import com.clmca.labs.datingapp.Utils.TopNavigationViewHelper;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 
 public class MainActivity extends Activity {
@@ -86,6 +94,54 @@ public class MainActivity extends Activity {
 //        Log.e("String JSON", strGson);
         arrayAdapter = new PhotoAdapter(this, R.layout.item, rowItems);
 
+
+        FindSuitablePersonRequest request = new FindSuitablePersonRequest();
+        request.setLat(38);
+        request.setLon(-120);
+
+
+        ApiService.apiService.getSuitablePartner(request).enqueue(new Callback<PageResponse<ProfileResponse>>() {
+            @Override
+            public void onResponse(Call<PageResponse<ProfileResponse>> call, Response<PageResponse<ProfileResponse>> response) {
+                PageResponse<ProfileResponse> body = response.body();
+                List<ProfileResponse> list = body.getList();
+                for (ProfileResponse profileResponse : list) {
+                    Cards cards
+                            = new Cards();
+                    cards.setUserId(profileResponse.getUsername());
+                    cards.setName(profileResponse.getFullName());
+                    cards.setBio(profileResponse.getAbout());
+                    cards.setProfileImageUr(profileResponse.getAvatar());
+                    cards.setMoreImageUr(profileResponse.getAvatar());
+                    cards.setInterest(profileResponse.getPassions().toArray().toString());
+
+                    int year = Calendar.getInstance().get(Calendar.YEAR);
+                    cards.setAge( year - profileResponse.getYearOfBirth());
+
+                   // double v = SloppyMath.haversinMeters(profileResponse.getLatitude(), profileResponse.getLongitude(), 38, -120);
+                    cards.setDistance(69);
+
+                    rowItems.add(cards);
+
+                }
+
+
+                //convert card sang gson
+//        Gson gson = new Gson();
+//        String strGson = gson.toJson(cards);
+//        Log.e("String JSON", strGson);
+                arrayAdapter = new PhotoAdapter(MainActivity.this, R.layout.item, rowItems);
+
+                checkRowItem();
+                updateSwipeCard();
+
+            }
+
+            @Override
+            public void onFailure(Call<PageResponse<ProfileResponse>> call, Throwable t) {
+                System.out.println(123);
+            }
+        });
         checkRowItem();
         updateSwipeCard();
     }
@@ -170,8 +226,8 @@ public class MainActivity extends Activity {
             @Override
             public void onScroll(float scrollProgressPercent) {
                 View view = flingContainer.getSelectedView();
-                view.findViewById(R.id.item_swipe_right_indicator).setAlpha(scrollProgressPercent < 0 ? -scrollProgressPercent : 0);
-                view.findViewById(R.id.item_swipe_left_indicator).setAlpha(scrollProgressPercent > 0 ? scrollProgressPercent : 0);
+               // view.findViewById(R.id.item_swipe_right_indicator).setAlpha(scrollProgressPercent < 0 ? -scrollProgressPercent : 0);
+               // view.findViewById(R.id.item_swipe_left_indicator).setAlpha(scrollProgressPercent > 0 ? scrollProgressPercent : 0);
             }
         });
 
