@@ -1,15 +1,23 @@
 package com.clmca.labs.datingapp.Login;
 
+import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
+import android.location.Location;
+import android.location.LocationListener;
+import android.location.LocationManager;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.util.Log;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+
 import com.clmca.labs.datingapp.service.api.ApiService;
 import com.google.android.gms.auth.api.Auth;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
@@ -27,6 +35,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
+import android.location.LocationManager;
 
 public class Login extends AppCompatActivity implements GoogleApiClient.OnConnectionFailedListener {
     SignInButton signInButton;
@@ -76,6 +85,15 @@ public class Login extends AppCompatActivity implements GoogleApiClient.OnConnec
 
         signInButton.setSize(SignInButton.SIZE_STANDARD);
 
+
+        // location
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            Intent intent = new Intent(Settings.ACTION_LOCALE_SETTINGS);
+            startActivity(intent);
+            Intent intent2 = new Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS);
+            startActivity(intent2);
+
+        }
 
 
     }
@@ -145,6 +163,7 @@ public class Login extends AppCompatActivity implements GoogleApiClient.OnConnec
     public static Context getContextOfApplication(){
         return contextOfApplication;
     }
+
 
 
 }

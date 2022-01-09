@@ -89,6 +89,7 @@ public class EditProfileActivity extends AppCompatActivity implements LocationLi
     protected Double latitude, longitude;
 
 
+    @SuppressLint("MissingPermission")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -121,15 +122,6 @@ public class EditProfileActivity extends AppCompatActivity implements LocationLi
         txtCompany = findViewById(R.id.txtCompany);
         txtSchool = findViewById(R.id.txtSchool);
         txtAboutme = findViewById(R.id.txtAbout);
-
-        // location
-         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-            Intent intent = new Intent(Settings.ACTION_LOCALE_SETTINGS);
-            startActivity(intent);
-            Intent intent2 = new Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS);
-            startActivity(intent2);
-
-        }
 
         LocationManager locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
         locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, this);
