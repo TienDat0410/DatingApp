@@ -46,188 +46,151 @@
             android:textColor="#1BB2F6"
             android:textSize="20sp"
             android:textStyle="bold" />
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
             android:orientation="horizontal">
-
-            <com.clmca.labs.datingapp.customfonts.ButtonSemiBold
-                android:id="@+id/sportsSelectionButton"
-                android:layout_width="match_parent"
+            <CheckBox
+                android:id="@+id/cbSport"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="40dp"
-                android:layout_marginTop="16dp"
-                android:layout_weight="1"
-                android:background="@drawable/btn_hobby"
-                android:elevation="25dp"
-                android:text="SPORTS"
-                android:textColor="@android:color/white"
-                android:textSize="17sp"
-                android:textStyle="bold" />
-
-            <com.clmca.labs.datingapp.customfonts.ButtonSemiBold
-                android:id="@+id/travelSelectionButton"
-                android:layout_width="match_parent"
+                android:text="Sport"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                android:padding="10dp"
+                android:layout_margin="10dp"
+                android:button="@null"
+                android:drawableRight="@drawable/bg_checkbox"/>
+            <CheckBox
+                android:id="@+id/cbTravel"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="25dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginRight="24dp"
-                android:layout_weight="1"
-                android:background="@drawable/btn_hobby"
-                android:elevation="25dp"
-                android:text="TRAVEL"
-                android:textColor="@android:color/white"
-                android:textSize="17sp"
-                android:textStyle="bold" />
+                android:text="Travel"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                android:padding="10dp"
+                android:layout_margin="10dp"
+                android:button="@null"
+                android:drawableRight="@drawable/bg_checkbox"/>
+            <CheckBox
+                android:id="@+id/cbMusic"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Music"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                android:padding="10dp"
+                android:layout_margin="10dp"
+                android:button="@null"
+                android:drawableRight="@drawable/bg_checkbox"/>
 
         </LinearLayout>
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
             android:orientation="horizontal">
-
-            <com.clmca.labs.datingapp.customfonts.ButtonSemiBold
-                android:id="@+id/musicSelectionButton"
-                android:layout_width="match_parent"
+            <CheckBox
+                android:id="@+id/cbFishing"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="40dp"
-                android:layout_marginTop="16dp"
-                android:layout_weight="1"
-                android:background="@drawable/btn_hobby"
-                android:elevation="24dp"
-                android:text="MUSIC"
-                android:textColor="@android:color/white"
-                android:textSize="17sp"
-                android:textStyle="bold" />
-
-            <com.clmca.labs.datingapp.customfonts.ButtonSemiBold
-                android:id="@+id/fishingSelectionButton"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="25dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginRight="24dp"
-                android:layout_weight="1"
-                android:background="@drawable/btn_hobby"
-                android:elevation="24dp"
                 android:text="Fishing"
-                android:textColor="@android:color/white"
-                android:textSize="17sp"
-                android:textStyle="bold" />
-        </LinearLayout>
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                android:padding="10dp"
+                android:layout_margin="10dp"
+                android:button="@null"
+                android:drawableRight="@drawable/bg_checkbox"/>
+            <CheckBox
+                android:id="@+id/cbMotorcycles"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Motorcycles"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                android:padding="10dp"
+                android:layout_margin="10dp"
+                android:button="@null"
+                android:drawableRight="@drawable/bg_checkbox"/>
 
+
+        </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
             android:orientation="horizontal">
 
-            <com.clmca.labs.datingapp.customfonts.ButtonSemiBold
-                android:id="@+id/motorcyclesSelectionButton"
-                android:layout_width="match_parent"
+            <CheckBox
+                android:id="@+id/cbLibra"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="40dp"
-                android:layout_marginTop="16dp"
-                android:layout_weight="1"
-                android:background="@drawable/btn_hobby"
-                android:elevation="24dp"
-                android:text="MOTORCYCLES"
-                android:textColor="@android:color/white"
-                android:textSize="17sp"
-                android:textStyle="bold" />
+                android:drawableRight="@drawable/bg_checkbox"
+                android:padding="10dp"
+                android:layout_margin="10dp"
+                android:text="Libra"
+                android:textColor="@color/white"
+                android:button="@null"
+                android:textSize="20sp" />
 
-            <com.clmca.labs.datingapp.customfonts.ButtonSemiBold
-                android:id="@+id/libraSelectionButton"
-                android:layout_width="match_parent"
+            <CheckBox
+                android:id="@+id/cbCoffee"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="25dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginRight="24dp"
-                android:layout_weight="1"
-                android:background="@drawable/btn_hobby"
-                android:elevation="24dp"
-                android:text="LIBRA"
-                android:textColor="@android:color/white"
-                android:textSize="17sp"
-                android:textStyle="bold" />
+                android:text="Coffee"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                android:padding="10dp"
+                android:layout_margin="10dp"
+                android:button="@null"
+                android:drawableRight="@drawable/bg_checkbox"/>
+            <CheckBox
+                android:id="@+id/cbkaraoke"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Karaoke"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                android:padding="10dp"
+                android:layout_margin="10dp"
+                android:button="@null"
+                android:drawableRight="@drawable/bg_checkbox"/>
         </LinearLayout>
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
             android:orientation="horizontal">
-
-            <com.clmca.labs.datingapp.customfonts.ButtonSemiBold
-                android:id="@+id/coffeeSelectionButton"
-                android:layout_width="match_parent"
+            <CheckBox
+                android:id="@+id/cbStreetFood"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="40dp"
-                android:layout_marginTop="16dp"
-                android:layout_weight="1"
-                android:background="@drawable/btn_hobby"
-                android:elevation="24dp"
-                android:text="COFFEE"
-                android:textColor="@android:color/white"
-                android:textSize="17sp"
-                android:textStyle="bold" />
-
-            <com.clmca.labs.datingapp.customfonts.ButtonSemiBold
-                android:id="@+id/karaokeSelectionButton"
-                android:layout_width="match_parent"
+                android:text="Street Food"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                android:padding="10dp"
+                android:layout_margin="10dp"
+                android:button="@null"
+                android:drawableRight="@drawable/bg_checkbox"/>
+            <CheckBox
+                android:id="@+id/cbSushi"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="25dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginRight="24dp"
-                android:layout_weight="1"
-                android:background="@drawable/btn_hobby"
-                android:elevation="24dp"
-                android:text="KARAOKE"
-                android:textColor="@android:color/white"
-                android:textSize="17sp"
-                android:textStyle="bold" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <com.clmca.labs.datingapp.customfonts.ButtonSemiBold
-                android:id="@+id/streetfoodSelectionButton"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="40dp"
-                android:layout_marginTop="16dp"
-                android:layout_weight="1"
-                android:background="@drawable/btn_hobby"
-                android:elevation="24dp"
-                android:text="STREET FOOD"
-                android:textColor="@android:color/white"
-                android:textSize="17sp"
-                android:textStyle="bold" />
-
-            <com.clmca.labs.datingapp.customfonts.ButtonSemiBold
-                android:id="@+id/sushiSelectionButton"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="25dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginRight="24dp"
-                android:layout_weight="1"
-                android:background="@drawable/btn_hobby"
-                android:elevation="24dp"
-                android:text="SUSHI"
-                android:textColor="@android:color/white"
-                android:textSize="17sp"
-                android:textStyle="bold" />
+                android:text="Sushi"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                android:padding="10dp"
+                android:layout_margin="10dp"
+                android:button="@null"
+                android:drawableRight="@drawable/bg_checkbox"/>
         </LinearLayout>
         <com.clmca.labs.datingapp.customfonts.ButtonSemiBold
             android:id="@+id/hobbiesContinueButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="24dp"
-            android:layout_marginTop="15dp"
+            android:layout_marginTop="20dp"
             android:layout_marginRight="24dp"
             android:background="@drawable/bt_button"
             android:elevation="25dp"

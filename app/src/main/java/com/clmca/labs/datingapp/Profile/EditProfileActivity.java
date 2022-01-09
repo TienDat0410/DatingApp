@@ -204,9 +204,24 @@ public class EditProfileActivity extends AppCompatActivity {
         String Hobby1 = intent.getStringExtra("hobby1");
         String Hobby2 = intent.getStringExtra("hobby2");
         String Hobby3 = intent.getStringExtra("hobby3");
+        String Hobby4 = intent.getStringExtra("hobby4");
+        String Hobby5 = intent.getStringExtra("hobby5");
+        String Hobby6 = intent.getStringExtra("hobby6");
+        String Hobby7 = intent.getStringExtra("hobby7");
+        String Hobby8 = intent.getStringExtra("hobby8");
+        String Hobby9 = intent.getStringExtra("hobby9");
+        String Hobby10 = intent.getStringExtra("hobby10");
+        //show hobby lên textview
         tvHobby1.setText(Hobby1);
         tvHobby2.setText(Hobby2);
         tvHobby3.setText(Hobby3);
+        tvHobby4.setText(Hobby4);
+        tvHobby5.setText(Hobby5);
+        tvHobby6.setText(Hobby6);
+        tvHobby7.setText(Hobby7);
+        tvHobby8.setText(Hobby8);
+        tvHobby9.setText(Hobby9);
+        tvHobby10.setText(Hobby10);
 
 
 
