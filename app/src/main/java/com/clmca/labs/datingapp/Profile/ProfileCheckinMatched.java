@@ -1,4 +1,4 @@
-package com.clmca.labs.datingapp.Matched;
+package com.clmca.labs.datingapp.Profile;
 
 import android.content.Context;
 import android.content.Intent;

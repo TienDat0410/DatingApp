@@ -29,8 +29,6 @@ public class Matched_Activity extends AppCompatActivity {
     List<User> copyList = new ArrayList<>();
     private Context mContext = Matched_Activity.this;
     private String userId, userSex, lookforSex;
-    private double latitude = 37.349642;
-    private double longtitude = -121.938987;
     private EditText search;
     private List<Users> usersList = new ArrayList<>();
     private RecyclerView recyclerView, mRecyclerView;

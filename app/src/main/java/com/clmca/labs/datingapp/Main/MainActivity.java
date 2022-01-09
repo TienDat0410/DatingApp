@@ -237,8 +237,7 @@ public class MainActivity extends Activity {
 //chat
     public void btnMess(View view) {
         Intent intent = new Intent(mContext, ChatActivity.class);
-        Bundle b = new Bundle();
-
-
+        startActivity(intent);
+        return;
     }
 }

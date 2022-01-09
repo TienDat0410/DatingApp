@@ -3,7 +3,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_marginTop="10dp"
-    android:background="@drawable/bg_matched">
+    android:background="@drawable/bg_matched"
+    android:orientation="horizontal">
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/person_image"
@@ -12,17 +13,33 @@
         android:layout_gravity="center_vertical"
         android:paddingTop="10dp"
         android:paddingBottom="10dp" />
-
-    <TextView
-        android:id="@+id/person_name"
+    <LinearLayout
+        android:paddingLeft="20sp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_vertical"
-        android:layout_marginLeft="10dp"
-        android:layout_weight="1"
-        android:text="Hello"
-        android:textColor="@color/textColor"
-        android:textSize="20sp" />
+        android:orientation="vertical"
+        android:layout_gravity="center">
+        <TextView
+            android:id="@+id/person_id"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="10dp"
+            android:layout_weight="1"
+            android:text="UserID"
+            android:textColor="@color/textColor"
+            android:textSize="20sp" />
+        <TextView
+            android:id="@+id/person_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="10dp"
+            android:layout_weight="1"
+            android:text="Name"
+            android:textColor="@color/textColor"
+            android:textSize="20sp" />
+    </LinearLayout>
 
     <ImageButton
         android:id="@+id/videoCalBtn"

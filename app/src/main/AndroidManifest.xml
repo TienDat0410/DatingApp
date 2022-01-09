@@ -53,7 +53,7 @@
         <activity android:name=".Matched.Matched_Activity" />
         <activity android:name=".Profile.Profile_Activity" />
         <activity android:name=".Main.ProfileCheckinMain" />
-        <activity android:name=".Matched.ProfileCheckinMatched" />
+        <activity android:name=".Profile.ProfileCheckinMatched" />
         <activity android:name=".Profile.EditProfileActivity" />
         <activity android:name=".Main.MainActivity" />
         <activity android:name=".Profile.SettingsActivity" />
