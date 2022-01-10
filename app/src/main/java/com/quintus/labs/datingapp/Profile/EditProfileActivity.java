@@ -123,6 +123,7 @@ public class EditProfileActivity extends AppCompatActivity implements LocationLi
 
         ApiService.apiService.getProfile().enqueue(new Callback<ProfileResponse>() {
 
+            @SuppressLint("ResourceAsColor")
             @Override
             public void onResponse(Call<ProfileResponse> call, Response<ProfileResponse> response) {
                 ProfileResponse body = response.body();
@@ -133,6 +134,20 @@ public class EditProfileActivity extends AppCompatActivity implements LocationLi
                 imageUrls = body.getPictures();
                 passions = body.getPassions();
                 gender = body.getGender();
+
+                if(gender == Gender.FEMALE){
+                    women_text.setTextColor(R.color.colorAccent);
+                    woman.setBackgroundResource(R.drawable.ic_check_select);
+                    man_text.setTextColor(R.color.black);
+                    man.setBackgroundResource(R.drawable.ic_check_unselect);
+                }
+
+                if(gender == Gender.MALE){
+                    man_text.setTextColor(R.color.colorAccent);
+                    man.setBackgroundResource(R.drawable.ic_check_select);
+                    women_text.setTextColor(R.color.black);
+                    woman.setBackgroundResource(R.drawable.ic_check_unselect);
+                }
 
 
                 updateListImage(imageUrls);
@@ -157,6 +172,7 @@ public class EditProfileActivity extends AppCompatActivity implements LocationLi
             @SuppressLint("ResourceAsColor")
             @Override
             public void onClick(View v) {
+                gender = Gender.FEMALE;
                 women_text.setTextColor(R.color.colorAccent);
                 woman.setBackgroundResource(R.drawable.ic_check_select);
                 man_text.setTextColor(R.color.black);
@@ -168,6 +184,7 @@ public class EditProfileActivity extends AppCompatActivity implements LocationLi
             @SuppressLint("ResourceAsColor")
             @Override
             public void onClick(View v) {
+                gender = Gender.MALE;
                 man_text.setTextColor(R.color.colorAccent);
                 man.setBackgroundResource(R.drawable.ic_check_select);
                 women_text.setTextColor(R.color.black);
@@ -512,6 +529,9 @@ public class EditProfileActivity extends AppCompatActivity implements LocationLi
                 .gender(gender)
                 .longitude(longitude)
                 .latitude(latitude)
+                .distance(500)
+                .minAge(14)
+                .maxAge(30)
                 .build();
 
         ApiService.apiService.saveProfile(request).enqueue(new Callback<Void>() {

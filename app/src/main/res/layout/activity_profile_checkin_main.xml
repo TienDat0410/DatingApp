@@ -34,6 +34,8 @@
                     android:scaleType="centerCrop"
                     android:src="@drawable/monkey" />
 
+
+
                 <Button
                     android:layout_width="40dp"
                     android:layout_height="40dp"
@@ -56,30 +58,6 @@
                 android:textColor="@color/textColor"
                 android:textSize="25sp" />
 
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="right">
-
-                <Button
-                    android:id="@+id/moreImg"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="right"
-                    android:layout_marginBottom="5dp"
-                    android:background="@drawable/bt_button"
-                    android:text="ẢNh Sau" />
-
-                <Button
-                    android:id="@+id/beforeImg"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="right"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginBottom="5dp"
-                    android:background="@drawable/bt_button"
-                    android:text="ẢNh trước" />
-            </LinearLayout>
 
 
             <TextView
@@ -138,22 +116,10 @@
                         android:layout_marginRight="20dp"
                         android:background="@drawable/round_button_with_border"
                         android:elevation="7dp"
-                        android:onClick="DislikeBtn"
                         android:padding="10dp"
                         android:src="@drawable/ic_dislike" />
 
-                    <ImageButton
-                        android:id="@+id/commentbtn"
-                        android:layout_width="60dp"
-                        android:layout_height="60dp"
-                        android:layout_alignParentTop="true"
-                        android:layout_centerHorizontal="true"
-                        android:layout_gravity="center"
-                        android:layout_marginRight="20dp"
-                        android:background="@drawable/round_button_with_border"
-                        android:elevation="7dp"
-                        android:padding="10dp"
-                        android:src="@drawable/ic_mess" />
+
 
 
                     <ImageButton
@@ -165,7 +131,6 @@
                         android:layout_alignParentRight="true"
                         android:background="@drawable/round_button_with_border"
                         android:elevation="7dp"
-                        android:onClick="LikeBtn"
                         android:padding="10dp"
                         android:src="@drawable/ic_like" />
 

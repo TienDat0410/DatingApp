@@ -8,6 +8,7 @@ import com.quintus.labs.datingapp.Login.AuthenticationResponse;
 import com.quintus.labs.datingapp.Login.GoogleAuthenticationRequest;
 import com.quintus.labs.datingapp.Profile.ProfileResponse;
 import com.quintus.labs.datingapp.Profile.SaveProfileRequest;
+import com.quintus.labs.datingapp.chat.PushMessageRequest;
 import com.quintus.labs.datingapp.service.FindSuitablePersonRequest;
 import com.quintus.labs.datingapp.service.PageResponse;
 import com.quintus.labs.datingapp.service.sharedprefs.SharedPrefs;
@@ -25,6 +26,7 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 import retrofit2.http.Body;
 import retrofit2.http.GET;
+import retrofit2.http.Headers;
 import retrofit2.http.Multipart;
 import retrofit2.http.POST;
 import retrofit2.http.Part;
@@ -63,7 +65,7 @@ public interface ApiService {
     @POST("user/profile")
     Call<Void> saveProfile(@Body SaveProfileRequest request);
 
-    //@Headers({"Authorization: Client-ID 79adc87693a65cc"})
+    @Headers({"Authorization: Client-ID 79adc87693a65cc"})
     @Multipart
     @POST("https://api.imgur.com/3/upload")
     Call<UploadFileResponse> uploadFile(
@@ -71,4 +73,7 @@ public interface ApiService {
 
     @POST("user/match")
     Call<PageResponse<ProfileResponse>> getSuitablePartner(@Body FindSuitablePersonRequest request);
+
+    @POST("user/chat/pushMessage")
+    Call<Void> sendMessage(@Body PushMessageRequest request);
 }

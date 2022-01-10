@@ -1,6 +1,8 @@
 package com.quintus.labs.datingapp.Main;
 
 
+import java.util.List;
+
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -18,6 +20,8 @@ public class Cards {
     private String interest;
     private int age;
     private double distance;
+
+    private List<String> pictures;
 
     public Cards(String userId, String name, int age, String profileImageUrl, String bio, String interest, int distance, String moreImageUr) {
         this.userId = userId;

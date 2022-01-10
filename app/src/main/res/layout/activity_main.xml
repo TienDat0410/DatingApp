@@ -66,7 +66,6 @@
                         android:layout_marginRight="20dp"
                         android:background="@drawable/round_button_with_border"
                         android:elevation="7dp"
-                        android:onClick="DislikeBtn"
                         android:padding="10dp"
                         android:src="@drawable/ic_dislike" />
 
@@ -82,7 +81,6 @@
                         android:layout_alignParentRight="true"
                         android:background="@drawable/round_button_with_border"
                         android:elevation="7dp"
-                        android:onClick="LikeBtn"
                         android:padding="10dp"
                         android:src="@drawable/ic_like" />
 

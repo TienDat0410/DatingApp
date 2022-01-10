@@ -4,7 +4,6 @@ import android.Manifest;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
-import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Location;
 import android.location.LocationListener;
@@ -17,6 +16,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageButton;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -30,7 +30,7 @@ import com.lorentzos.flingswipe.SwipeFlingAdapterView;
 import com.quintus.labs.datingapp.Profile.ProfileResponse;
 import com.quintus.labs.datingapp.Utils.PulsatorLayout;
 import com.quintus.labs.datingapp.Utils.TopNavigationViewHelper;
-import com.quintus.labs.datingapp.chat.ChatActivity;
+import com.quintus.labs.datingapp.chat.PushMessageRequest;
 import com.quintus.labs.datingapp.service.FindSuitablePersonRequest;
 import com.quintus.labs.datingapp.service.PageResponse;
 import com.quintus.labs.datingapp.service.api.ApiService;
@@ -60,6 +60,7 @@ public class MainActivity extends Activity implements LocationListener {
     private ImageButton dislikeBtn, likeBtn;
 
 
+    @RequiresApi(api = Build.VERSION_CODES.M)
     @SuppressLint("MissingPermission")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -80,6 +81,7 @@ public class MainActivity extends Activity implements LocationListener {
         likeBtn.setOnClickListener(v -> {
             flingContainer.getTopCardListener().selectRight();
         });
+
 
         cardFrame = findViewById(R.id.card_frame);
         moreFrame = findViewById(R.id.more_frame);
@@ -147,6 +149,8 @@ public class MainActivity extends Activity implements LocationListener {
         }
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.M)
+    @SuppressLint("ClickableViewAccessibility")
     private void updateSwipeCard() {
         flingContainer = findViewById(R.id.frame);
 
@@ -158,8 +162,10 @@ public class MainActivity extends Activity implements LocationListener {
             public void removeFirstObjectInAdapter() {
                 // this is the simplest way to delete an object from the Adapter (/AdapterView)
                 Log.d("LIST", "removed object!");
-                rowItems.remove(0);
-                arrayAdapter.notifyDataSetChanged();
+                if (rowItems.size() > 0) {
+                    rowItems.remove(0);
+                    arrayAdapter.notifyDataSetChanged();
+                }
             }
 
             @Override
@@ -176,7 +182,24 @@ public class MainActivity extends Activity implements LocationListener {
                 //check matches
                 checkRowItem();
 
-                Toast.makeText(getApplicationContext(), "like", Toast.LENGTH_SHORT).show();
+                PushMessageRequest request = PushMessageRequest.builder()
+                        .targetId(obj.getUserId())
+                        .message("Like!!!")
+                        .build();
+
+                ApiService.apiService.sendMessage(request).enqueue(new Callback<Void>() {
+                    @Override
+                    public void onResponse(Call<Void> call, Response<Void> response) {
+                        Toast.makeText(getApplicationContext(), "like success", Toast.LENGTH_SHORT).show();
+                    }
+
+                    @Override
+                    public void onFailure(Call<Void> call, Throwable t) {
+                        Toast.makeText(getApplicationContext(), "like error " + t.getMessage(), Toast.LENGTH_SHORT).show();
+                    }
+                });
+
+
             }
 
             @Override
@@ -189,51 +212,38 @@ public class MainActivity extends Activity implements LocationListener {
             @Override
             public void onScroll(float scrollProgressPercent) {
                 View view = flingContainer.getSelectedView();
-                // view.findViewById(R.id.item_swipe_right_indicator).setAlpha(scrollProgressPercent < 0 ? -scrollProgressPercent : 0);
-                // view.findViewById(R.id.item_swipe_left_indicator).setAlpha(scrollProgressPercent > 0 ? scrollProgressPercent : 0);
+
+
+                if (view != null) {
+                    TextView rightText = view.findViewById(R.id.item_swipe_right_indicator2);
+                    if (rightText != null) {
+                        rightText.setAlpha(scrollProgressPercent < 0 ? -scrollProgressPercent : 0);
+                    }
+
+                    TextView leftText = view.findViewById(R.id.item_swipe_left_indicator2);
+
+                    if (leftText != null) {
+                        leftText.setAlpha(scrollProgressPercent > 0 ? scrollProgressPercent : 0);
+                    }
+
+
+                }
+
             }
         });
 
-        // Optionally add an OnItemClickListener
-        flingContainer.setOnItemClickListener(new SwipeFlingAdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClicked(int itemPosition, Object dataObject) {
-                flingContainer.getTopCardListener().selectLeft();
-            }
+
+// Optionally add an OnItemClickListener
+        flingContainer.setOnItemClickListener((i, o) -> {
+
+            System.out.println("item click listener from main");
+
+            //flingContainer.getTopCardListener().selectLeft();
         });
+
+
     }
 
-    public void DislikeBtn(View v) {
-        if (rowItems.size() != 0) {
-            Cards card_item = rowItems.get(0);
-
-            String userId = card_item.getUserId();
-
-            rowItems.remove(0);
-            arrayAdapter.notifyDataSetChanged();
-
-            Intent btnClick = new Intent(mContext, BtnDislikeActivity.class);
-            btnClick.putExtra("url", card_item.getProfileImageUr());
-            startActivity(btnClick);
-        }
-    }
-
-    public void LikeBtn(View v) {
-        if (rowItems.size() != 0) {
-            Cards card_item = rowItems.get(0);
-
-            String userId = card_item.getUserId();
-
-            //check matches
-
-            rowItems.remove(0);
-            arrayAdapter.notifyDataSetChanged();
-
-            Intent btnClick = new Intent(mContext, BtnLikeActivity.class);
-            btnClick.putExtra("url", card_item.getProfileImageUr());
-            startActivity(btnClick);
-        }
-    }
 
     /**
      * setup top tool bar
@@ -253,12 +263,6 @@ public class MainActivity extends Activity implements LocationListener {
 
     }
 
-    //chat
-    public void btnMess(View view) {
-        Intent intent = new Intent(mContext, ChatActivity.class);
-        Bundle b = new Bundle();
-
-    }
 
     @Override
     public void onLocationChanged(@NonNull Location location) {
@@ -269,7 +273,7 @@ public class MainActivity extends Activity implements LocationListener {
 
         if (rowItems.size() <= 3) {
             getSuitablePartner(latitude, longitude);
-            Toast.makeText(getApplicationContext(), "get data from server time " + cc++, Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(), "get data from server time " + cc++, Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -296,6 +300,7 @@ public class MainActivity extends Activity implements LocationListener {
                             + profile.getCompany() + "\nJob: "
                             + profile.getJobDescription() + "\nSchool: " + profile.getSchool();
 
+                    cards.setPictures(profile.getPictures());
 
                     cards.setBio(bio);
                     cards.setProfileImageUr(profile.getAvatar());

@@ -1,10 +1,11 @@
 package com.quintus.labs.datingapp.Main;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MotionEvent;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -12,14 +13,16 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.bumptech.glide.Glide;
 import com.clmca.labs.datingapp.R;
+import com.squareup.picasso.Picasso;
+
+import java.util.List;
 
 
 public class ProfileCheckinMain extends AppCompatActivity {
-    String profileImageUrl;
-    String moreImageUr;
-    private Button btnMoreImg, btnbeforeImg;
     private Context mContext;
+    private ImageView imageView;
 
+    @SuppressLint("ClickableViewAccessibility")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,16 +30,45 @@ public class ProfileCheckinMain extends AppCompatActivity {
 
         mContext = ProfileCheckinMain.this;
         TextView profileName = findViewById(R.id.name_main);
-        //
-        ImageView profileImage = findViewById(R.id.profileImage);
-        ImageView moreImage = findViewById(R.id.profileImage);
-        //
+
 
         TextView profileBio = findViewById(R.id.bio_beforematch);
         TextView profileInterest = findViewById(R.id.interests_beforematch);
         TextView profileDistance = findViewById(R.id.distance_main);
+        imageView = findViewById(R.id.profileImage);
+
+
         //
+
         Intent intent = getIntent();
+
+        List<String> pictures = (List<String>) intent.getSerializableExtra("pictures");
+        Picasso.get().load(pictures.get(0)).into(imageView);
+
+        imageView.setOnTouchListener((v, event) -> {
+            if (event.getAction() == MotionEvent.ACTION_DOWN) {
+                int x = (int) event.getX();
+
+
+
+                if (x >= 500) {
+                    String s = pictures.get(0);
+                    pictures.remove(0);
+                    pictures.add(s);
+
+                } else {
+                    String s = pictures.get(pictures.size() - 1);
+                    pictures.remove(pictures.size() - 1);
+                    pictures.add(0, s);
+                }
+
+                Glide.with(v.getContext()).load(pictures.get(0)).into(imageView);
+
+                //Picasso.get().load(card_item.getPictures().get(0)).into(images);
+            }
+            return true;
+        });
+
         String name = intent.getStringExtra("name");
         String bio = intent.getStringExtra("bio");
         String interest = intent.getStringExtra("interest");
@@ -48,54 +80,9 @@ public class ProfileCheckinMain extends AppCompatActivity {
         profileBio.setText(bio);
         profileInterest.setText(interest);
 
-        profileImageUrl = intent.getStringExtra("photo");
-        moreImageUr = intent.getStringExtra("moreimage");
-        switch (profileImageUrl) {
-            case "defaultFemale":
-                Glide.with(mContext).load(R.drawable.default_woman).into(profileImage);
-                break;
-            case "defaultMale":
-                Glide.with(mContext).load(R.drawable.default_man).into(profileImage);
-                break;
-            default:
-                Glide.with(mContext).load(profileImageUrl).into(profileImage);
-                break;
-        }
-        //more image
-        btnMoreImg = (Button) findViewById(R.id.moreImg);
-        btnMoreImg.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Glide.with(mContext).load(moreImageUr).into(moreImage);
-            }
-        });
-        //xem ảnh trước
-        btnbeforeImg = (Button) findViewById(R.id.beforeImg);
-        btnbeforeImg.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Glide.with(mContext).load(profileImageUrl).into(profileImage);
-            }
-        });
-
 
     }
 
-
-    public void DislikeBtn(View v) {
-
-        Intent btnClick = new Intent(mContext, BtnDislikeActivity.class);
-        btnClick.putExtra("url", profileImageUrl);
-        startActivity(btnClick);
-
-    }
-
-    public void LikeBtn(View v) {
-        Intent btnClick = new Intent(mContext, BtnLikeActivity.class);
-        btnClick.putExtra("url", profileImageUrl);
-        startActivity(btnClick);
-
-    }
 
     public void onCloseClicked(View view) {
         finish();
