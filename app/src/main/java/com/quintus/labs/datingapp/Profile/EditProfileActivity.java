@@ -390,7 +390,7 @@ public class EditProfileActivity extends AppCompatActivity implements LocationLi
         startActivityForResult(intent, REQUEST_CAMERA);
     }
 
-    @RequiresApi(api = Build.VERSION_CODES.R)
+    @RequiresApi(api = Build.VERSION_CODES.Q)
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -408,7 +408,7 @@ public class EditProfileActivity extends AppCompatActivity implements LocationLi
         }
     }
 
-    @RequiresApi(api = Build.VERSION_CODES.R)
+    @RequiresApi(api = Build.VERSION_CODES.Q)
     private void onCaptureImageResult(Intent data) {
         if (requireFileAccessPermision()) return;
         Bitmap bm = (Bitmap) data.getExtras().get("data");
@@ -417,7 +417,7 @@ public class EditProfileActivity extends AppCompatActivity implements LocationLi
 
     }
 
-    @RequiresApi(api = Build.VERSION_CODES.R)
+    @RequiresApi(api = Build.VERSION_CODES.Q)
     private void uploadImageFromBitmap(Bitmap bm) {
         if (requireFileAccessPermision()) return;
 
@@ -451,10 +451,10 @@ public class EditProfileActivity extends AppCompatActivity implements LocationLi
         return null;
     }
 
-    @RequiresApi(api = Build.VERSION_CODES.R)
+    @RequiresApi(api = Build.VERSION_CODES.Q)
     private boolean requireFileAccessPermision() {
-        if (!Environment.isExternalStorageManager()) {
-            Intent intent = new Intent(Settings.ACTION_MANAGE_ALL_FILES_ACCESS_PERMISSION);
+        if (!Environment.isExternalStorageLegacy()) {
+            Intent intent = new Intent(Settings.ACTION_MANAGE_ALL_APPLICATIONS_SETTINGS);
             startActivity(intent);
             return true;
         }
@@ -495,7 +495,7 @@ public class EditProfileActivity extends AppCompatActivity implements LocationLi
         });
     }
 
-    @RequiresApi(api = Build.VERSION_CODES.R)
+    @RequiresApi(api = Build.VERSION_CODES.Q)
     @SuppressWarnings("deprecation")
     private void onSelectFromGalleryResult(Intent data) {
 
@@ -564,6 +564,21 @@ public class EditProfileActivity extends AppCompatActivity implements LocationLi
         latitude = location.getLatitude();
         longitude = location.getLongitude();
 
+
+    }
+
+    @Override
+    public void onStatusChanged(String s, int i, Bundle bundle) {
+
+    }
+
+    @Override
+    public void onProviderEnabled(String s) {
+
+    }
+
+    @Override
+    public void onProviderDisabled(String s) {
 
     }
 }

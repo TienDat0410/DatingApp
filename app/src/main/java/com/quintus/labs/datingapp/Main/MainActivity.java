@@ -205,7 +205,8 @@ public class MainActivity extends Activity implements LocationListener {
             @Override
             public void onAdapterAboutToEmpty(int itemsInAdapter) {
                 // Ask for more data here
-
+                getSuitablePartner(latitude, longitude);
+                Toast.makeText(getApplicationContext(), "get data from server time " + cc++, Toast.LENGTH_SHORT).show();
 
             }
 
@@ -277,6 +278,21 @@ public class MainActivity extends Activity implements LocationListener {
         }
     }
 
+    @Override
+    public void onStatusChanged(String s, int i, Bundle bundle) {
+
+    }
+
+    @Override
+    public void onProviderEnabled(String s) {
+
+    }
+
+    @Override
+    public void onProviderDisabled(String s) {
+
+    }
+
     public void getSuitablePartner(double lat, double lon) {
 
         FindSuitablePersonRequest request = new FindSuitablePersonRequest();
@@ -289,34 +305,37 @@ public class MainActivity extends Activity implements LocationListener {
             @Override
             public void onResponse(Call<PageResponse<ProfileResponse>> call, Response<PageResponse<ProfileResponse>> response) {
                 PageResponse<ProfileResponse> body = response.body();
-                List<ProfileResponse> list = body.getList();
-                for (ProfileResponse profile : list) {
-                    Cards cards
-                            = new Cards();
-                    cards.setUserId(profile.getUsername());
-                    cards.setName(profile.getFullName());
 
-                    String bio = "About: " + profile.getAbout() + "\nDescription: "
-                            + profile.getCompany() + "\nJob: "
-                            + profile.getJobDescription() + "\nSchool: " + profile.getSchool();
+                if (body != null) {
+                    List<ProfileResponse> list = body.getList();
+                    for (ProfileResponse profile : list) {
+                        Cards cards
+                                = new Cards();
+                        cards.setUserId(profile.getUsername());
+                        cards.setName(profile.getFullName());
 
-                    cards.setPictures(profile.getPictures());
+                        String bio = "About: " + profile.getAbout() + "\nDescription: "
+                                + profile.getCompany() + "\nJob: "
+                                + profile.getJobDescription() + "\nSchool: " + profile.getSchool();
 
-                    cards.setBio(bio);
-                    cards.setProfileImageUr(profile.getAvatar());
-                    cards.setMoreImageUr(profile.getAvatar());
-                    cards.setInterest("Interest: " + profile.getPassions().stream().map(Object::toString)
-                            .collect(Collectors.joining(", ")));
+                        cards.setPictures(profile.getPictures());
 
-                    int year = Calendar.getInstance().get(Calendar.YEAR);
-                    cards.setAge(year - profile.getYearOfBirth());
+                        cards.setBio(bio);
+                        cards.setProfileImageUr(profile.getAvatar());
+                        cards.setMoreImageUr(profile.getAvatar());
+                        cards.setInterest("Interest: " + profile.getPassions().stream().map(Object::toString)
+                                .collect(Collectors.joining(", ")));
 
-                    double v = distance(latitude, longitude, profile.getLatitude(), profile.getLongitude(), 'K');
+                        int year = Calendar.getInstance().get(Calendar.YEAR);
+                        cards.setAge(year - profile.getYearOfBirth());
 
-                    cards.setDistance(v);
+                        double v = distance(latitude, longitude, profile.getLatitude(), profile.getLongitude(), 'K');
 
-                    rowItems.add(cards);
+                        cards.setDistance(v);
 
+                        rowItems.add(cards);
+
+                    }
                 }
 
                 arrayAdapter = new PhotoAdapter(MainActivity.this, R.layout.item, rowItems);
@@ -355,5 +374,10 @@ public class MainActivity extends Activity implements LocationListener {
 
     private double rad2deg(double rad) {
         return (rad * 180.0 / Math.PI);
+    }
+
+    @Override
+    public void onPointerCaptureChanged(boolean hasCapture) {
+
     }
 }
