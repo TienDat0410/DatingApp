@@ -103,7 +103,7 @@
                             android:layout_marginRight="10dp"
                             android:background="@null"
                             android:button="@drawable/custom_switch"
-                            android:checked="true"
+                            android:checked="false"
                             android:thumb="@null"
                             app:track="@null" />
                     </RelativeLayout>

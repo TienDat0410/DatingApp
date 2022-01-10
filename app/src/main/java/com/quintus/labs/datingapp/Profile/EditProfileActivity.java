@@ -529,9 +529,6 @@ public class EditProfileActivity extends AppCompatActivity implements LocationLi
                 .gender(gender)
                 .longitude(longitude)
                 .latitude(latitude)
-                .distance(500)
-                .minAge(14)
-                .maxAge(30)
                 .build();
 
         ApiService.apiService.saveProfile(request).enqueue(new Callback<Void>() {
